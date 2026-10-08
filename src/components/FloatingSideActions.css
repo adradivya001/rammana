@@ -1,75 +1,80 @@
-.floating-side-tabs {
+/* ==========================================
+   FLOATING ACTIONS STYLES
+   ========================================== */
+
+.floating-actions-container {
   position: fixed;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 1000;
+  bottom: 24px;
+  right: 24px;
   display: flex;
   flex-direction: column;
   gap: 12px;
-  pointer-events: auto;
+  z-index: 999;
 }
 
-.side-tab {
-  width: 58px;
-  height: 56px;
-  border-radius: 28px 0 0 28px;
+.floating-btn {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  text-decoration: none;
+  box-shadow: 0 6px 20px rgba(16, 42, 67, 0.25);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
   border: none;
   cursor: pointer;
-  box-shadow: -4px 6px 18px rgba(0, 0, 0, 0.16);
-  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s ease;
-  outline: none;
+  text-decoration: none;
 }
 
-.side-tab:hover {
-  transform: translateX(-6px);
-  box-shadow: -6px 8px 24px rgba(0, 0, 0, 0.24);
+.floating-btn:hover {
+  transform: translateY(-3px) scale(1.05);
 }
 
-.tab-icon-glass {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.22);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.whatsapp-btn {
+  background-color: #25D366;
   color: #FFFFFF;
 }
 
-/* Tab Colors matching screenshot */
-.tab-whatsapp {
-  background-color: #00BFA5;
+.phone-btn {
+  background-color: var(--color-primary);
+  color: #FFFFFF;
 }
 
-.tab-calendar {
-  background-color: #0B2240;
+.top-btn {
+  background-color: #FFFFFF;
+  color: var(--color-primary);
+  border: 1px solid var(--border-subtle);
 }
 
-.tab-phone {
-  background-color: #E52E2E;
+.floating-tooltip {
+  position: absolute;
+  right: 64px;
+  background-color: var(--color-primary-dark);
+  color: #FFFFFF;
+  font-size: 0.76rem;
+  font-weight: 600;
+  padding: 0.35rem 0.65rem;
+  border-radius: 6px;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateX(8px);
+  transition: all 0.2s ease;
 }
 
-/* Mobile Adjustments */
-@media (max-width: 640px) {
-  .side-tab {
-    width: 48px;
-    height: 48px;
-    border-radius: 24px 0 0 24px;
+.floating-btn:hover .floating-tooltip {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+@media (max-width: 768px) {
+  .floating-actions-container {
+    bottom: 16px;
+    right: 16px;
   }
-  .tab-icon-glass {
-    width: 34px;
-    height: 34px;
-  }
-  .tab-icon-glass svg {
-    width: 18px;
-    height: 18px;
+  .floating-btn {
+    width: 46px;
+    height: 46px;
   }
 }

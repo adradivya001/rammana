@@ -1,98 +1,152 @@
 import React from 'react';
-import { Phone, MapPin, ArrowUp } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { 
+  Phone, 
+  MapPin, 
+  Clock, 
+  ChevronRight, 
+  ShieldCheck, 
+  Activity,
+  Calendar,
+  MessageCircle
+} from 'lucide-react';
+import { siteConfig } from '../data/siteData';
 import './Footer.css';
 
-const DEFAULT_FOOTER_DATA = {
-  logoImage: "/images/vasundhara_logo.png",
-  brandName: "VASUNDHARA DIAGNOSTICS",
-  brandSub: "Fetal Medicine Centre",
-  tagline: "Specialized diagnostics and fetal medicine care in Sai Nagar, Anantapur.",
-  quickLinks: [
-    { label: "About", href: "#hero" },
-    { label: "Doctors", href: "#doctors" },
-    { label: "Services", href: "#services" },
-    { label: "Fetal Medicine", href: "#fetal-medicine" },
-    { label: "Reviews", href: "#reviews" },
-    { label: "Contact", href: "#contact" }
-  ],
-  contact: {
-    phone: "79893 30974",
-    phoneLink: "7989330974",
-    location: "Sai Nagar, Anantapur"
-  },
-  copyright: "© 2026 Vasundhara Diagnostics & Fetal Medicine Centre. All rights reserved."
-};
-
-export default function Footer({ onOpenBooking, data }) {
-  const content = data || DEFAULT_FOOTER_DATA;
-
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
+export default function Footer() {
   return (
-    <footer className="footer-compact">
+    <footer className="ref-footer-wrapper">
       <div className="container">
-        <div className="footer-grid-compact">
-          {/* LEFT: Logo & Short Description */}
-          <div className="footer-col-brand">
-            <div className="footer-brand-header">
-              {content.logoImage && (
-                <img 
-                  src={content.logoImage} 
-                  alt={`${content.brandName || "Hospital"} Logo`} 
-                  className="footer-logo-sm" 
-                />
-              )}
-              {content.brandName ? (
-                <div className="footer-brand-title-wrap">
-                  <span className="footer-brand-name">{content.brandName}</span>
-                  <span className="footer-brand-sub">{content.brandSub}</span>
-                </div>
-              ) : null}
+        
+        {/* Top Header Row: Dual Brand + Quick Actions */}
+        <div className="ref-footer-top-row">
+          
+          {/* Dual Brand Identity */}
+          <div className="ref-footer-brand-wrap">
+            <div className="ref-footer-brand-left">
+              <img 
+                src="/images/vasundhara_logo.png" 
+                alt="Vasundhara Diagnostics Logo" 
+                className="footer-brand-logo-img"
+              />
+              <div>
+                <span className="ref-f-name">VASUNDHARA</span>
+                <span className="ref-f-sub">Diagnostics &amp; Fetal Medicine Centre</span>
+              </div>
             </div>
-            <p className="footer-tagline">
-              {content.tagline}
+
+            <div className="ref-f-pipe"></div>
+
+            <div className="ref-footer-brand-right">
+              <div className="f-logo-icon dm-icon">
+                <Activity size={16} />
+              </div>
+              <div>
+                <span className="ref-f-sk-name">Sai Kiran</span>
+                <span className="ref-f-sk-sub">Diabetic Clinic</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Quick CTA buttons */}
+          <div className="footer-cta-quick">
+            <Link to="/book-appointment" className="ref-btn-teal footer-book-btn">
+              <Calendar size={14} />
+              <span>Book Appointment</span>
+            </Link>
+            <a 
+              href={siteConfig.contact.whatsappUrl} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="footer-whatsapp-btn"
+            >
+              <MessageCircle size={15} />
+              <span>WhatsApp</span>
+            </a>
+          </div>
+
+        </div>
+
+        {/* Compact 4-Column Grid */}
+        <div className="footer-columns-grid">
+          
+          {/* Col 1: About Centre */}
+          <div className="footer-col">
+            <h4 className="footer-col-title">About Centre</h4>
+            <p className="footer-col-desc">
+              Premier fetal medicine, high-resolution ultrasound imaging, and specialized diabetes care in Sai Nagar, Anantapur.
             </p>
-          </div>
-
-          {/* CENTER: Quick Links */}
-          <div className="footer-col-links">
-            <span className="footer-heading">Quick Links</span>
-            <div className="footer-links-grid">
-              {content.quickLinks.map((link, idx) => (
-                <a key={idx} href={link.href}>{link.label}</a>
-              ))}
+            <div className="footer-cert-badge">
+              <ShieldCheck size={14} className="cert-shield" />
+              <span>Certified Diagnostic &amp; Diabetic Suites</span>
             </div>
           </div>
 
-          {/* RIGHT: Contact & Single Book CTA */}
-          <div className="footer-col-contact">
-            <span className="footer-heading">Contact</span>
-            <div className="footer-contact-details">
-              <a href={`tel:${content.contact.phoneLink}`} className="footer-phone">
-                <Phone size={14} /> {content.contact.phone}
-              </a>
-              <span className="footer-location">
-                <MapPin size={14} /> {content.contact.location}
-              </span>
+          {/* Col 2: Care Divisions */}
+          <div className="footer-col">
+            <h4 className="footer-col-title">Care Divisions</h4>
+            <ul className="footer-links-list">
+              <li><Link to="/fetal-medicine"><ChevronRight size={13} /> Fetal NT &amp; TIFFA Scans</Link></li>
+              <li><Link to="/fetal-medicine"><ChevronRight size={13} /> Doppler &amp; Growth Imaging</Link></li>
+              <li><Link to="/diabetes-care"><ChevronRight size={13} /> Comprehensive Diabetes Care</Link></li>
+              <li><Link to="/diabetes-care"><ChevronRight size={13} /> Gestational Diabetes</Link></li>
+              <li><Link to="/services"><ChevronRight size={13} /> General Ultrasound</Link></li>
+            </ul>
+          </div>
+
+          {/* Col 3: Quick Navigation */}
+          <div className="footer-col">
+            <h4 className="footer-col-title">Quick Links</h4>
+            <ul className="footer-links-list">
+              <li><Link to="/"><ChevronRight size={13} /> Home Page</Link></li>
+              <li><Link to="/about"><ChevronRight size={13} /> About Facility</Link></li>
+              <li><Link to="/doctors"><ChevronRight size={13} /> Specialists</Link></li>
+              <li><Link to="/patient-guide"><ChevronRight size={13} /> Patient Guide</Link></li>
+              <li><Link to="/contact"><ChevronRight size={13} /> Contact &amp; Location</Link></li>
+            </ul>
+          </div>
+
+          {/* Col 4: Contact & Timings */}
+          <div className="footer-col">
+            <h4 className="footer-col-title">Visit &amp; Contact</h4>
+            <div className="footer-contact-block">
+              <div className="f-contact-line">
+                <MapPin size={14} className="f-c-icon" />
+                <span>Sai Nagar Double Road, Anantapur, AP</span>
+              </div>
+              <div className="f-contact-line">
+                <Phone size={14} className="f-c-icon" />
+                <span><a href={`tel:${siteConfig.contact.phoneDeskRaw}`}>{siteConfig.contact.phoneDesk}</a> | <a href={`tel:${siteConfig.contact.hotlineRaw}`}>{siteConfig.contact.hotline}</a></span>
+              </div>
+              <div className="f-contact-line">
+                <Clock size={14} className="f-c-icon" />
+                <span>Mon–Sat: 9AM–8PM | Sun: 9AM–1PM</span>
+              </div>
             </div>
-            <button onClick={() => onOpenBooking && onOpenBooking()} className="btn-footer-book">
-              Book Appointment
-            </button>
+          </div>
+
+        </div>
+
+        {/* Divider */}
+        <div className="ref-footer-divider"></div>
+
+        {/* Bottom Metadata & Legal Bar */}
+        <div className="ref-footer-bottom-bar">
+          <div className="ref-footer-legal">
+            <span>&copy; {new Date().getFullYear()} Vasundhara Diagnostics &amp; Fetal Medicine Centre &amp; Sai Kiran Diabetic Clinic.</span>
+          </div>
+
+          <div className="ref-legal-links">
+            <Link to="/about">Privacy</Link>
+            <span>•</span>
+            <Link to="/about">Terms</Link>
+            <span>•</span>
+            <Link to="/contact">Emergency Info</Link>
           </div>
         </div>
 
-        {/* BOTTOM BAR */}
-        <div className="footer-bottom-compact">
-          <p className="footer-copyright">
-            {content.copyright}
-          </p>
-          <button onClick={scrollToTop} className="footer-back-top" aria-label="Back to top">
-            Back to top ↑
-          </button>
-        </div>
       </div>
     </footer>
   );
 }
+

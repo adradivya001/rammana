@@ -1,0 +1,237 @@
+/* ==========================================
+   CONTACT PAGE STYLES
+   ========================================== */
+
+.contact-ref-page {
+  background-color: var(--bg-page);
+  padding-bottom: 80px;
+}
+
+.contact-main-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 36px;
+  align-items: start;
+}
+
+/* Info Card */
+.contact-info-card {
+  background: #FFFFFF;
+  border-radius: var(--radius-xl);
+  padding: 36px;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  box-shadow: 0 6px 20px rgba(10, 30, 54, 0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  margin-bottom: 24px;
+}
+
+.contact-detail-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.contact-icon-circle {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, #E6F7F6 0%, #DDF3F1 100%);
+  color: var(--color-clinical-teal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.contact-detail-row h4 {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-primary-navy);
+  margin-bottom: 4px;
+}
+
+.contact-detail-row p {
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+}
+
+.contact-detail-row a {
+  color: var(--color-clinical-teal);
+  font-weight: 600;
+}
+
+.contact-detail-row a:hover {
+  text-decoration: underline;
+}
+
+.contact-whatsapp-row {
+  padding-top: 14px;
+  border-top: 1px solid #F1F5F9;
+}
+
+.contact-wa-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  background: #25D366;
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: 0.92rem;
+  padding: 12px 20px;
+  border-radius: var(--radius-full);
+  transition: all var(--transition-fast);
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.25);
+}
+
+.contact-wa-btn:hover {
+  background: #20BA5A;
+  transform: translateY(-2px);
+  color: #FFFFFF;
+  box-shadow: 0 6px 18px rgba(37, 211, 102, 0.35);
+}
+
+.contact-map-container {
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(10, 30, 54, 0.06);
+  border: 3px solid #FFFFFF;
+}
+
+/* Appointment Form Card */
+.appointment-request-card {
+  background: #FFFFFF;
+  border-radius: var(--radius-xl);
+  padding: 40px;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  box-shadow: 0 8px 28px rgba(10, 30, 54, 0.06);
+}
+
+.form-kicker {
+  display: block;
+  font-size: 0.74rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-clinical-teal);
+  margin-bottom: 4px;
+}
+
+.appointment-request-card h3 {
+  font-family: var(--font-serif);
+  font-size: 1.65rem;
+  font-weight: 700;
+  color: var(--color-primary-navy);
+  margin-bottom: 6px;
+}
+
+.form-sub-desc {
+  font-size: 0.92rem;
+  color: var(--color-text-muted);
+  margin-bottom: 26px;
+}
+
+.contact-actual-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.form-group-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group-wrap label {
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--color-primary-navy);
+}
+
+.form-group-wrap input,
+.form-group-wrap select,
+.form-group-wrap textarea {
+  padding: 12px 16px;
+  border-radius: var(--radius-md);
+  border: 1.5px solid #E2E8F0;
+  background-color: var(--bg-page);
+  color: var(--color-text-primary);
+  font-size: 0.92rem;
+  transition: all var(--transition-fast);
+  outline: none;
+}
+
+.form-group-wrap input:focus,
+.form-group-wrap select:focus,
+.form-group-wrap textarea:focus {
+  border-color: var(--color-clinical-teal);
+  background-color: #FFFFFF;
+  box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.15);
+}
+
+.form-row-two {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.submit-btn {
+  padding: 14px 28px;
+  font-size: 1rem;
+  margin-top: 8px;
+}
+
+/* Success Alert */
+.form-success-alert {
+  text-align: center;
+  padding: 36px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.success-icon {
+  color: #10B981;
+  margin-bottom: 16px;
+}
+
+.form-success-alert h4 {
+  font-family: var(--font-serif);
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--color-primary-navy);
+  margin-bottom: 8px;
+}
+
+.form-success-alert p {
+  font-size: 0.95rem;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  max-width: 440px;
+  margin-bottom: 24px;
+}
+
+.mt-3 {
+  margin-top: 12px;
+}
+
+@media (max-width: 960px) {
+  .contact-main-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .form-row-two {
+    grid-template-columns: 1fr;
+  }
+  .appointment-request-card {
+    padding: 28px 20px;
+  }
+}

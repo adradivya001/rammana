@@ -1,0 +1,401 @@
+/* ==========================================
+   PREMIUM GLOBAL ANIMATION SYSTEM
+   Vasundhara Diagnostics & Sai Kiran Diabetic Clinic
+   ========================================== */
+
+/* ─── Keyframes ─── */
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-22px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeLeft {
+  from { opacity: 0; transform: translateX(32px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeRight {
+  from { opacity: 0; transform: translateX(-32px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes revealMask {
+  from { clip-path: inset(0 100% 0 0); }
+  to   { clip-path: inset(0 0% 0 0); }
+}
+
+@keyframes gradientShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(28, 140, 140, 0); }
+  50%       { box-shadow: 0 0 0 10px rgba(28, 140, 140, 0.08); }
+}
+
+@keyframes floatUp {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-8px); }
+}
+
+@keyframes drawLine {
+  from { stroke-dashoffset: 500; }
+  to   { stroke-dashoffset: 0; }
+}
+
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes rotateIn {
+  from { opacity: 0; transform: rotate(-6deg) scale(0.94); }
+  to   { opacity: 1; transform: rotate(0) scale(1); }
+}
+
+@keyframes borderFlow {
+  0%   { border-color: rgba(28,140,140, 0.15); }
+  50%  { border-color: rgba(28,140,140, 0.5); }
+  100% { border-color: rgba(28,140,140, 0.15); }
+}
+
+@keyframes progressFill {
+  from { width: 0%; }
+  to   { width: 100%; }
+}
+
+@keyframes ping {
+  0%    { transform: scale(1); opacity: 0.8; }
+  100%  { transform: scale(2.2); opacity: 0; }
+}
+
+@keyframes badgeAppear {
+  0%   { opacity: 0; transform: translateX(16px) scale(0.9); }
+  100% { opacity: 1; transform: translateX(0) scale(1); }
+}
+
+@keyframes typeWriter {
+  from { width: 0; }
+  to   { width: 100%; }
+}
+
+@keyframes heroImageZoom {
+  from { transform: scale(1.06); }
+  to   { transform: scale(1); }
+}
+
+@keyframes sectionReveal {
+  0%   { opacity: 0; filter: blur(4px); transform: translateY(20px); }
+  100% { opacity: 1; filter: blur(0); transform: translateY(0); }
+}
+
+/* ─── Scroll-Reveal Utility Classes ─── */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-36px);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(36px);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.92);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-scale.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Stagger delays */
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
+.delay-4 { transition-delay: 0.4s; }
+.delay-5 { transition-delay: 0.5s; }
+.delay-6 { transition-delay: 0.6s; }
+.delay-7 { transition-delay: 0.7s; }
+.delay-8 { transition-delay: 0.8s; }
+
+/* ─── Hero Entrance Animations ─── */
+
+.hero-animate-title {
+  animation: fadeUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
+}
+
+.hero-animate-sub {
+  animation: fadeUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
+}
+
+.hero-animate-cta {
+  animation: fadeUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both;
+}
+
+.hero-animate-visual {
+  animation: scaleIn 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+}
+
+.hero-img-anim {
+  animation: heroImageZoom 1.6s cubic-bezier(0.16, 1, 0.3, 1) 0s both;
+}
+
+.hero-badge-anim-1 {
+  animation: badgeAppear 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.9s both;
+}
+
+.hero-badge-anim-2 {
+  animation: badgeAppear 0.7s cubic-bezier(0.16, 1, 0.3, 1) 1.15s both;
+}
+
+/* ─── Premium Card Hover System ─── */
+
+.premium-card {
+  transition: transform 0.38s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.38s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.28s ease;
+  will-change: transform;
+}
+
+.premium-card:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 24px 56px -8px rgba(16, 42, 67, 0.16);
+  border-color: rgba(28, 140, 140, 0.35);
+}
+
+/* Glow card variant */
+.glow-card:hover {
+  box-shadow: 0 20px 48px -6px rgba(28, 140, 140, 0.2);
+}
+
+/* Navy card hover */
+.navy-card-hover:hover {
+  box-shadow: 0 20px 48px -6px rgba(16, 42, 67, 0.25);
+  border-color: rgba(16, 42, 67, 0.4);
+}
+
+/* ─── Lifecycle Flow Animations (Fetal Journey) ─── */
+
+.lifecycle-node {
+  position: relative;
+  opacity: 0;
+  transform: translateY(20px) scale(0.96);
+  transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.lifecycle-node.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.lifecycle-node::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-teal), var(--color-teal-light));
+  border-radius: var(--radius-full);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1) 0.3s;
+}
+
+.lifecycle-node.visible::before {
+  transform: scaleX(1);
+}
+
+/* ─── Step Connector Animated Lines ─── */
+
+.animated-connector {
+  position: relative;
+  overflow: hidden;
+}
+
+.animated-connector::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-teal), transparent);
+  transform: scaleX(0) translateY(-50%);
+  transform-origin: left;
+  transition: transform 0.6s ease 0.4s;
+}
+
+.animated-connector.visible::after {
+  transform: scaleX(1) translateY(-50%);
+}
+
+/* ─── Number Step Pulse ─── */
+
+.step-pulse {
+  animation: pulseGlow 2.5s ease-in-out infinite;
+}
+
+/* ─── Gradient Text Animation ─── */
+
+.gradient-animated-text {
+  background: linear-gradient(135deg, var(--color-teal) 0%, #1AD3D3 30%, var(--color-primary) 60%, var(--color-teal) 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientShift 4s ease-in-out infinite;
+}
+
+/* ─── Floating Badges ─── */
+
+.float-badge {
+  animation: floatUp 3.5s ease-in-out infinite;
+}
+
+.float-badge-delayed {
+  animation: floatUp 3.5s ease-in-out 1.2s infinite;
+}
+
+/* ─── Shimmer Skeleton / Loading Placeholder ─── */
+
+.shimmer {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* ─── Live Dot Pulse ─── */
+
+.live-dot-pulse {
+  position: relative;
+}
+
+.live-dot-pulse::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background-color: #22C55E;
+  animation: ping 1.5s ease-out infinite;
+}
+
+/* ─── Arrow / CTA Link animation ─── */
+
+.link-arrow-anim {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: gap 0.25s ease;
+}
+
+.link-arrow-anim:hover {
+  gap: 0.7rem;
+}
+
+/* ─── Section Header Entrance ─── */
+
+.section-eyebrow-anim {
+  animation: fadeDown 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.section-title-anim {
+  animation: fadeUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
+}
+
+/* ─── Progress Bar Animation ─── */
+
+.progress-bar-fill {
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-teal), var(--color-teal-light));
+  border-radius: var(--radius-full);
+  transform-origin: left;
+  animation: progressFill 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ─── Panel Hover with gradient border ─── */
+
+.gradient-border-hover {
+  position: relative;
+  border: 1px solid transparent;
+  background-clip: padding-box;
+  transition: all 0.35s ease;
+}
+
+.gradient-border-hover::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, var(--color-teal), transparent, var(--color-primary));
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.gradient-border-hover:hover::before {
+  opacity: 1;
+}
+
+/* ─── Reduce Motion ─── */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .reveal, .reveal-left, .reveal-right, .reveal-scale {
+    opacity: 1;
+    transform: none;
+  }
+}

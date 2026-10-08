@@ -1,0 +1,444 @@
+/* ==========================================
+   FETAL MEDICINE PAGE STYLES
+   ========================================== */
+
+.fetal-ref-page {
+  background-color: var(--bg-page);
+  color: var(--color-text-primary);
+  padding-bottom: 80px;
+}
+
+/* ── 1. HERO ─────────────────────────────── */
+.fetal-hero-section {
+  padding: 60px 0 70px;
+  background: linear-gradient(135deg, #FAF4ED 0%, #F5EFE6 45%, #E6F7F6 100%);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+.fetal-hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  align-items: center;
+  gap: 48px;
+}
+
+.fetal-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(13, 148, 136, 0.3);
+  padding: 6px 16px;
+  border-radius: var(--radius-full);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-dark-teal);
+  margin-bottom: 18px;
+  box-shadow: 0 2px 8px rgba(10, 30, 54, 0.04);
+}
+
+.badge-sparkle {
+  color: #C89538;
+}
+
+.fetal-hero-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.4rem, 4vw, 3.4rem);
+  font-weight: 800;
+  color: var(--color-primary-navy);
+  line-height: 1.18;
+  margin-bottom: 18px;
+}
+
+.fetal-hero-title span {
+  display: block;
+  font-size: clamp(1.4rem, 2.3vw, 1.9rem);
+  color: var(--color-clinical-teal);
+  font-weight: 700;
+  margin-top: 6px;
+}
+
+.fetal-hero-desc {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--color-text-secondary);
+  margin-bottom: 30px;
+  max-width: 540px;
+}
+
+.fetal-hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.fetal-image-wrap {
+  position: relative;
+}
+
+.fetal-image-frame {
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(10, 30, 54, 0.12);
+  border: 4px solid #FFFFFF;
+}
+
+.fetal-hero-img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  display: block;
+}
+
+.fetal-floating-card {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(12px);
+  padding: 12px 18px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+}
+
+.fetal-badge-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  background: linear-gradient(135deg, #0F766E 0%, #0D9488 100%);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.fetal-floating-card strong {
+  display: block;
+  font-size: 0.88rem;
+  color: var(--color-primary-navy);
+}
+
+.fetal-floating-card span {
+  display: block;
+  font-size: 0.74rem;
+  color: var(--color-text-muted);
+}
+
+/* ── 2. SCANS ROADMAP TABS ───────────────── */
+.fetal-scans-roadmap-section {
+  padding: 80px 0;
+  background: #FFFFFF;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.7);
+}
+
+.fetal-scans-layout {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 36px;
+  align-items: start;
+}
+
+.scan-tabs-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.scan-tab-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+  padding: 18px 20px;
+  background: var(--bg-page);
+  border: 1.5px solid #E2E8F0;
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  transition: all var(--transition-smooth);
+}
+
+.scan-tab-btn:hover {
+  background: #FFFFFF;
+  border-color: var(--color-clinical-teal);
+  transform: translateX(4px);
+}
+
+.scan-tab-btn.active {
+  background: #FFFFFF;
+  border-color: var(--color-clinical-teal);
+  box-shadow: 0 8px 24px rgba(13, 148, 136, 0.14);
+}
+
+.tab-timing-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #C89538;
+  text-transform: uppercase;
+  margin-bottom: 3px;
+}
+
+.tab-title-text {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-primary-navy);
+}
+
+.tab-arrow {
+  color: var(--color-text-muted);
+  transition: transform var(--transition-fast);
+}
+
+.scan-tab-btn.active .tab-arrow {
+  transform: translateX(3px);
+  color: var(--color-clinical-teal);
+}
+
+/* Detail Card */
+.scan-detail-card {
+  background: var(--bg-page);
+  border: 1px solid #E2E8F0;
+  border-radius: var(--radius-xl);
+  padding: 40px;
+  box-shadow: 0 8px 24px rgba(10, 30, 54, 0.05);
+}
+
+.scan-card-header {
+  padding-bottom: 20px;
+  border-bottom: 1px solid #E2E8F0;
+  margin-bottom: 24px;
+}
+
+.scan-card-timing {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #C89538;
+  background: #FEF6E9;
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  margin-bottom: 8px;
+}
+
+.scan-card-title {
+  font-family: var(--font-serif);
+  font-size: 1.65rem;
+  font-weight: 700;
+  color: var(--color-primary-navy);
+}
+
+.scan-info-block {
+  margin-bottom: 24px;
+}
+
+.scan-info-block h4 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-primary-navy);
+  margin-bottom: 8px;
+}
+
+.info-icon {
+  color: var(--color-clinical-teal);
+}
+
+.scan-info-block p {
+  font-size: 0.96rem;
+  line-height: 1.65;
+  color: var(--color-text-secondary);
+  padding-left: 26px;
+}
+
+.prep-block {
+  background: #FFFFFF;
+  padding: 18px 20px;
+  border-radius: var(--radius-md);
+  border: 1px solid #E2E8F0;
+}
+
+.prep-block p {
+  padding-left: 0;
+}
+
+.prep-icon {
+  color: #C89538;
+}
+
+.scan-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid #E2E8F0;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.scan-doctor-lead {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+/* ── 3. ADVANTAGES ───────────────────────── */
+.fetal-advantages-section {
+  padding: 80px 0;
+  background: var(--bg-page);
+}
+
+.fetal-adv-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.fetal-adv-card {
+  background: #FFFFFF;
+  padding: 34px 28px;
+  border-radius: var(--radius-xl);
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 6px 20px rgba(10, 30, 54, 0.04);
+  transition: all var(--transition-smooth);
+}
+
+.fetal-adv-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--color-clinical-teal);
+  box-shadow: 0 16px 36px rgba(10, 30, 54, 0.1);
+}
+
+.adv-icon-box {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, #E6F7F6 0%, #DDF3F1 100%);
+  color: var(--color-clinical-teal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+
+.fetal-adv-card h4 {
+  font-family: var(--font-sans);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-primary-navy);
+  margin-bottom: 10px;
+}
+
+.fetal-adv-card p {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+}
+
+/* ── 4. DOCTOR SPOTLIGHT ─────────────────── */
+.fetal-doctor-spotlight {
+  padding: 80px 0 20px;
+}
+
+.fetal-doc-card {
+  background: #FFFFFF;
+  border-radius: var(--radius-xl);
+  padding: 40px;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 10px 30px rgba(6, 21, 39, 0.06);
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 36px;
+  align-items: center;
+}
+
+.fetal-lead-insignia {
+  width: 100%;
+  height: 220px;
+  border-radius: var(--radius-xl);
+  background: linear-gradient(135deg, #0F766E 0%, #0D9488 50%, #06B6D4 100%);
+  color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  box-shadow: 0 12px 32px rgba(13, 148, 136, 0.35);
+}
+
+.insignia-pill {
+  font-size: 0.74rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(6px);
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.doc-kicker {
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-clinical-teal);
+}
+
+.doc-h-name {
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--color-primary-navy);
+  margin: 4px 0;
+}
+
+.doc-h-qual {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #D4AF37;
+  margin-bottom: 14px;
+}
+
+.doc-h-bio {
+  font-size: 0.98rem;
+  line-height: 1.68;
+  color: var(--color-text-secondary);
+  font-style: italic;
+  margin-bottom: 18px;
+}
+
+.doc-schedule-strip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.84rem;
+  color: var(--color-text-muted);
+  background: var(--bg-page);
+  padding: 8px 14px;
+  border-radius: var(--radius-md);
+  margin-bottom: 22px;
+}
+
+@media (max-width: 980px) {
+  .fetal-hero-grid,
+  .fetal-scans-layout,
+  .fetal-adv-grid,
+  .fetal-doc-card {
+    grid-template-columns: 1fr;
+  }
+}

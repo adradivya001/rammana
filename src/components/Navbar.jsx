@@ -1,234 +1,188 @@
 import React, { useState, useEffect } from 'react';
-import { Phone, Calendar, Menu, X, ChevronRight, ArrowRight } from 'lucide-react';
+import { NavLink, Link, useLocation } from 'react-router-dom';
+import { 
+  Menu, 
+  X, 
+  ArrowRight,
+  Activity, 
+  Calendar,
+  Phone,
+  Clock,
+  MapPin,
+  MessageCircle
+} from 'lucide-react';
+import { siteConfig } from '../data/siteData';
 import './Navbar.css';
 
-export default function Navbar({ onOpenBooking, data }) {
-  const [scrollDirection, setScrollDirection] = useState('up');
-  const [isTop, setIsTop] = useState(true);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [activeTab, setActiveTab] = useState('about');
-
-  // Use provided data or fallback to Vasundhara default
-  const content = data || {
-    logoText: "VASUNDHARA",
-    logoSubtext: "Diagnostics & Fetal Medicine",
-    logoImage: "/images/vasundhara_logo.png",
-    phone: "79893 30974",
-    phoneUrl: "tel:7989330974",
-    navLinks: [
-      { id: "about", label: "About", href: "#hero" },
-      { id: "doctors", label: "Doctors", href: "#doctors" },
-      { id: "services", label: "Services", href: "#services" },
-      { id: "fetal-medicine", label: "Fetal Medicine", href: "#fetal-medicine" },
-      { id: "facility", label: "Facility", href: "#facility" },
-      { id: "reviews", label: "Reviews", href: "#reviews" },
-      { id: "contact", label: "Contact", href: "#contact" }
-    ]
-  };
+export default function Navbar() {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileOpen, setIsMobileOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
-    let lastScrollY = window.scrollY;
-    let ticking = false;
-
     const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-
-      // 1. Compact / Expand state
-      if (currentScrollY < 30) {
-        setIsTop(true);
-        setScrollDirection('up');
-      } else {
-        setIsTop(false);
-        if (currentScrollY > lastScrollY + 5) {
-          setScrollDirection('down');
-        } else if (currentScrollY < lastScrollY - 5) {
-          setScrollDirection('up');
-        }
-      }
-      lastScrollY = currentScrollY > 0 ? currentScrollY : 0;
-
-      // 2. Active Tab Scroll Spy
-      const links = content.navLinks || [];
-      const windowHeight = window.innerHeight;
-      const documentHeight = document.documentElement.scrollHeight;
-
-      // Bottom of page check -> activate last link (usually contact)
-      if (currentScrollY + windowHeight >= documentHeight - 60 && links.length > 0) {
-        setActiveTab(links[links.length - 1].id);
-        ticking = false;
-        return;
-      }
-
-      // Top of page check -> activate first link (about / hero)
-      if (currentScrollY < 120 && links.length > 0) {
-        setActiveTab(links[0].id);
-        ticking = false;
-        return;
-      }
-
-      // Check sections from bottom to top
-      const scrollPos = currentScrollY + 160;
-      for (let i = links.length - 1; i >= 0; i--) {
-        const link = links[i];
-        const targetId = link.href.replace('#', '');
-        const elem = document.getElementById(targetId);
-        if (elem) {
-          const top = elem.offsetTop;
-          if (scrollPos >= top) {
-            setActiveTab(link.id);
-            break;
-          }
-        }
-      }
-
-      ticking = false;
+      setIsScrolled(window.scrollY > 20);
     };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
-    const onScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(handleScroll);
-        ticking = true;
-      }
-    };
-
-    window.addEventListener('scroll', onScroll, { passive: true });
-    handleScroll();
-
-    return () => window.removeEventListener('scroll', onScroll);
-  }, [content.navLinks]);
-
-  const closeMobileMenu = () => setMobileMenuOpen(false);
-
-  const handleNavClick = (e, link) => {
-    e.preventDefault();
-    setActiveTab(link.id);
-    closeMobileMenu();
-
-    const targetId = link.href.replace('#', '');
-    const targetElem = document.getElementById(targetId);
-    if (targetElem) {
-      const navOffset = 90;
-      const elemPosition = targetElem.getBoundingClientRect().top;
-      const offsetPosition = elemPosition + window.pageYOffset - navOffset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
-
-      if (window.history.pushState) {
-        window.history.pushState(null, null, link.href);
-      }
+  // Close mobile menu on route changes
+  const prevPathnameRef = React.useRef(location.pathname);
+  if (prevPathnameRef.current !== location.pathname) {
+    prevPathnameRef.current = location.pathname;
+    if (isMobileOpen) {
+      setIsMobileOpen(false);
     }
-  };
-
-  const isCompact = scrollDirection === 'down' && !isTop;
+  }
 
   return (
-    <header className={`navbar-header-glass ${isCompact ? 'navbar-compact' : 'navbar-expanded'}`}>
-      <div className="navbar-pill-container">
-        {/* Brand Logo & Wordmark Area */}
-        <a 
-          href="#hero" 
-          className="navbar-brand-glass" 
-          onClick={(e) => handleNavClick(e, { id: 'about', href: '#hero' })}
-        >
-          {content.logoImage && (
-            <img 
-              src={content.logoImage} 
-              alt={content.logoText || "Hospital Logo"} 
-              className="brand-logo-img-glass"
-            />
-          )}
-          {content.logoText ? (
-            <div className="brand-text-glass">
-              <span className="brand-title-glass">{content.logoText}</span>
-              <span className="brand-subtitle-glass">{content.logoSubtext}</span>
-            </div>
-          ) : null}
-        </a>
+    <header className={`ref-header-fixed ${isScrolled ? 'scrolled' : ''}`}>
+      
+      {/* ── Top Utility Bar ── */}
+      <div className="navbar-top-announcement">
+        <div className="container nav-top-flex">
+          <div className="nav-top-left">
+            <span className="nav-top-item">
+              <MapPin size={13} className="nav-top-icon" />
+              <span>Sai Nagar, Anantapur</span>
+            </span>
+            <span className="nav-top-divider">•</span>
+            <span className="nav-top-item">
+              <Clock size={13} className="nav-top-icon" />
+              <span>Mon–Sat: 9 AM – 8 PM</span>
+            </span>
+            <span className="nav-top-pill-badge">
+              <span className="pulse-dot"></span>
+              <span>Open Today</span>
+            </span>
+          </div>
 
-        {/* Center Navigation Links Group */}
-        <nav className="navbar-nav-glass desktop-only">
-          {content.navLinks.map((link) => (
-            <a 
-              key={link.id}
-              href={link.href} 
-              className={`nav-link-glass ${activeTab === link.id ? 'active' : ''}`}
-              onClick={(e) => handleNavClick(e, link)}
-            >
-              {link.label}
+          <div className="nav-top-right">
+            <a href={`tel:${siteConfig.contact.phoneDeskRaw}`} className="nav-top-link">
+              <Phone size={13} />
+              <span>Helpdesk: <strong>{siteConfig.contact.phoneDesk}</strong></span>
             </a>
-          ))}
-        </nav>
-
-        {/* Right CTA & Menu Group */}
-        <div className="navbar-actions-glass">
-          <button 
-            onClick={() => onOpenBooking && onOpenBooking()} 
-            className="btn-glass-pill nav-btn-book-glass desktop-only"
-          >
-            <span>Book Appointment</span> <ArrowRight size={16} />
-          </button>
-
-          <button
-            className="hamburger-btn-glass"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Toggle navigation menu"
-            aria-expanded={mobileMenuOpen}
-          >
-            {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
-          </button>
+            <a 
+              href={siteConfig.contact.whatsappUrl} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="nav-top-whatsapp"
+            >
+              <MessageCircle size={13} />
+              <span>WhatsApp</span>
+            </a>
+          </div>
         </div>
       </div>
 
-      {/* Mobile Dark Glass Drawer Overlay */}
-      {mobileMenuOpen && (
-        <div className="mobile-drawer-overlay" onClick={closeMobileMenu}>
-          <div className="mobile-drawer-dark" onClick={(e) => e.stopPropagation()}>
-            <div className="mobile-drawer-header">
-              <div className="navbar-brand-glass">
-                {content.logoImage && (
-                  <img 
-                    src={content.logoImage} 
-                    alt={content.logoText || "Hospital Logo"} 
-                    className="brand-logo-img-sm" 
-                  />
-                )}
-                {content.logoText ? (
-                  <div className="brand-text-glass">
-                    <span className="brand-title-glass">{content.logoText}</span>
-                    <span className="brand-subtitle-glass">{content.logoSubtext}</span>
-                  </div>
-                ) : null}
+      {/* ── Main Navigation Bar ── */}
+      <div className="ref-navbar-main">
+        <div className="container nav-container">
+          
+          {/* Dual Brand Identity with Official Logo */}
+          <Link to="/" className="ref-brand-group" aria-label="Vasundhara Diagnostics & Sai Kiran Diabetic Clinic">
+            <div className="brand-logo-left">
+              <img 
+                src="/images/vasundhara_logo.png" 
+                alt="Vasundhara Diagnostics & Fetal Medicine Logo" 
+                className="ref-brand-logo-img"
+              />
+              <div className="brand-titles">
+                <span className="brand-name-vasundhara">VASUNDHARA</span>
+                <span className="brand-sub-vasundhara">Diagnostics &amp; Fetal Medicine</span>
               </div>
-              <button className="drawer-close-btn-dark" onClick={closeMobileMenu}>
-                <X size={22} />
-              </button>
             </div>
 
-            <nav className="mobile-nav-links-dark">
-              {content.navLinks.map((link) => (
-                <a 
-                  key={link.id} 
-                  href={link.href} 
-                  className={`mobile-nav-link-dark ${activeTab === link.id ? 'active' : ''}`} 
-                  onClick={(e) => handleNavClick(e, link)}
-                >
-                  {link.label} <ChevronRight size={16} />
-                </a>
-              ))}
-            </nav>
+            <div className="brand-divider-pipe"></div>
 
-            <div className="mobile-drawer-footer-dark">
-              <button 
-                onClick={() => { closeMobileMenu(); onOpenBooking && onOpenBooking(); }} 
-                className="btn-glass-pill btn-full"
-              >
-                <Calendar size={18} /> Book Appointment
-              </button>
-              <a href={content.phoneUrl} className="btn btn-outline-light btn-full">
-                <Phone size={18} /> Call {content.phone}
+            <div className="brand-logo-right">
+              <div className="brand-logo-symbol-dm" title="Sai Kiran Diabetic Clinic">
+                <Activity size={18} />
+              </div>
+              <div className="brand-titles">
+                <span className="brand-name-saikiran">Sai Kiran</span>
+                <span className="brand-sub-saikiran">Diabetic Clinic</span>
+              </div>
+            </div>
+          </Link>
+
+          {/* Desktop Navigation Links */}
+          <nav className="ref-desktop-menu" aria-label="Primary Navigation">
+            <NavLink to="/" end className={({ isActive }) => `ref-nav-link ${isActive ? 'active' : ''}`}>
+              Home
+            </NavLink>
+            <NavLink to="/about" className={({ isActive }) => `ref-nav-link ${isActive ? 'active' : ''}`}>
+              About
+            </NavLink>
+            <NavLink to="/fetal-medicine" className={({ isActive }) => `ref-nav-link ${isActive ? 'active' : ''}`}>
+              Fetal Medicine
+            </NavLink>
+            <NavLink to="/diabetes-care" className={({ isActive }) => `ref-nav-link ${isActive ? 'active' : ''}`}>
+              Diabetes Care
+            </NavLink>
+            <NavLink to="/services" className={({ isActive }) => `ref-nav-link ${isActive ? 'active' : ''}`}>
+              Services
+            </NavLink>
+            <NavLink to="/doctors" className={({ isActive }) => `ref-nav-link ${isActive ? 'active' : ''}`}>
+              Doctors
+            </NavLink>
+            <NavLink to="/patient-guide" className={({ isActive }) => `ref-nav-link ${isActive ? 'active' : ''}`}>
+              Patient Guide
+            </NavLink>
+            <NavLink to="/reviews" className={({ isActive }) => `ref-nav-link ${isActive ? 'active' : ''}`}>
+              Reviews
+            </NavLink>
+            <NavLink to="/contact" className={({ isActive }) => `ref-nav-link ${isActive ? 'active' : ''}`}>
+              Contact
+            </NavLink>
+          </nav>
+
+          {/* Nav Right CTA Action */}
+          <div className="ref-nav-cta">
+            <Link to="/book-appointment" className="ref-btn-teal ref-book-btn">
+              <Calendar size={15} />
+              <span>Book Visit</span>
+              <ArrowRight size={14} className="cta-arrow-icon" />
+            </Link>
+          </div>
+
+          {/* Mobile Menu Toggle Button */}
+          <button 
+            type="button" 
+            className="ref-mobile-toggle"
+            onClick={() => setIsMobileOpen(!isMobileOpen)}
+            aria-label="Toggle Navigation Menu"
+          >
+            {isMobileOpen ? <X size={26} /> : <Menu size={26} />}
+          </button>
+
+        </div>
+      </div>
+
+      {/* ── Mobile Menu Drawer ── */}
+      {isMobileOpen && (
+        <div className="ref-mobile-drawer">
+          <div className="container mobile-drawer-inner">
+            <NavLink to="/" end className="ref-mob-link">Home</NavLink>
+            <NavLink to="/about" className="ref-mob-link">About Centre</NavLink>
+            <NavLink to="/fetal-medicine" className="ref-mob-link">Fetal Medicine &amp; Ultrasound</NavLink>
+            <NavLink to="/diabetes-care" className="ref-mob-link">Sai Kiran Diabetic Clinic</NavLink>
+            <NavLink to="/services" className="ref-mob-link">Clinical Services</NavLink>
+            <NavLink to="/doctors" className="ref-mob-link">Meet Our Doctors</NavLink>
+            <NavLink to="/patient-guide" className="ref-mob-link">Patient Guide &amp; Prep</NavLink>
+            <NavLink to="/reviews" className="ref-mob-link">Patient Reviews</NavLink>
+            <NavLink to="/contact" className="ref-mob-link">Contact &amp; Location</NavLink>
+            
+            <div className="mob-cta-box">
+              <Link to="/book-appointment" className="ref-btn-teal full-width">
+                <Calendar size={16} />
+                <span>Book Appointment Online</span>
+                <ArrowRight size={16} />
+              </Link>
+              <a href={`tel:${siteConfig.contact.phoneDeskRaw}`} className="ref-btn-outline full-width mt-2">
+                <Phone size={15} />
+                <span>Call Desk: {siteConfig.contact.phoneDesk}</span>
               </a>
             </div>
           </div>

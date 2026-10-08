@@ -1,0 +1,199 @@
+/* ==========================================
+   PATIENT GUIDE PAGE STYLES
+   ========================================== */
+
+.guide-page {
+  background-color: var(--bg-page);
+  padding-bottom: 80px;
+}
+
+.guide-hero-section {
+  padding: 60px 0 60px;
+  background: linear-gradient(135deg, #FAF4EE 0%, #F5EFE6 50%, #EBF7F6 100%);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+.guide-hero-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.4rem, 4vw, 3.4rem);
+  font-weight: 800;
+  color: var(--color-primary-navy);
+  margin: 12px 0;
+}
+
+.guide-hero-subtitle {
+  font-size: 1.1rem;
+  line-height: 1.68;
+  color: var(--color-text-secondary);
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.guide-steps-section {
+  padding: 70px 0;
+  background-color: #FFFFFF;
+}
+
+.guide-steps-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+.guide-step-card {
+  background-color: var(--bg-page);
+  border-radius: var(--radius-xl);
+  padding: 38px 32px;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  box-shadow: 0 6px 20px rgba(10, 30, 54, 0.04);
+  display: flex;
+  flex-direction: column;
+  transition: all var(--transition-smooth);
+}
+
+.guide-step-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--color-clinical-teal);
+  box-shadow: 0 16px 36px rgba(10, 30, 54, 0.08);
+  background: #FFFFFF;
+}
+
+.guide-card-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.guide-step-num {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--color-dark-teal);
+  background-color: #E6F7F6;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+}
+
+.guide-card-title {
+  font-family: var(--font-serif);
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--color-primary-navy);
+}
+
+.guide-card-desc {
+  font-size: 0.96rem;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  margin-bottom: 22px;
+}
+
+.guide-points-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: auto;
+}
+
+.guide-points-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.88rem;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+}
+
+.guide-points-list li svg {
+  color: var(--color-clinical-teal);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* Amenities */
+.guide-amenities-section {
+  padding: 80px 0;
+  background-color: var(--bg-page);
+}
+
+.amenities-card {
+  background-color: #FFFFFF;
+  border-radius: var(--radius-xl);
+  padding: 44px;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  box-shadow: 0 8px 24px rgba(10, 30, 54, 0.05);
+}
+
+.amenities-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 28px;
+}
+
+.amenity-box {
+  background-color: var(--bg-page);
+  padding: 24px;
+  border-radius: var(--radius-lg);
+  border: 1px solid #E2E8F0;
+  transition: all var(--transition-smooth);
+}
+
+.amenity-box:hover {
+  background: #FFFFFF;
+  border-color: var(--color-clinical-teal);
+  transform: translateY(-3px);
+}
+
+.amenity-box strong {
+  display: block;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-primary-navy);
+  margin-bottom: 6px;
+}
+
+.amenity-box p {
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+  line-height: 1.55;
+}
+
+/* Guide CTA */
+.guide-cta-section {
+  background: linear-gradient(135deg, #0A1E36 0%, #0F3554 100%);
+  color: #FFFFFF;
+  padding: 70px 0;
+}
+
+.guide-cta-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  font-weight: 800;
+  color: #FFFFFF;
+  margin-bottom: 12px;
+}
+
+.guide-cta-sub {
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 620px;
+  margin: 0 auto 28px;
+}
+
+.guide-cta-btn-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 960px) {
+  .guide-steps-grid,
+  .amenities-grid {
+    grid-template-columns: 1fr;
+  }
+}

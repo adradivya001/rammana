@@ -1,0 +1,344 @@
+/* ==========================================
+   MODERN LUXURY ABOUT PAGE STYLES
+   ========================================== */
+
+.about-ref-page {
+  background-color: var(--bg-page);
+  color: var(--color-text-primary);
+  padding-bottom: 80px;
+}
+
+/* ── 1. ABOUT HERO ───────────────────────── */
+.about-hero-section {
+  padding: 60px 0 70px;
+  background: linear-gradient(135deg, #FAF5EE 0%, #F5EFE6 50%, #EDF7F6 100%);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+.about-hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  align-items: center;
+  gap: 48px;
+}
+
+.about-hero-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.4rem, 4vw, 3.4rem);
+  font-weight: 800;
+  color: var(--color-primary-navy);
+  line-height: 1.18;
+  margin-bottom: 18px;
+}
+
+.about-hero-title span {
+  display: block;
+  font-size: clamp(1.4rem, 2.4vw, 2rem);
+  color: var(--color-clinical-teal);
+  font-weight: 700;
+  margin-top: 6px;
+}
+
+.about-hero-desc {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--color-text-secondary);
+  margin-bottom: 30px;
+  max-width: 540px;
+}
+
+.about-hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.about-hero-image-wrap {
+  position: relative;
+}
+
+.about-hero-frame {
+  position: relative;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(10, 30, 54, 0.12);
+  border: 4px solid #FFFFFF;
+}
+
+.about-hero-img {
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+  display: block;
+}
+
+.about-img-badge {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  right: 16px;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(10px);
+  padding: 12px 18px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.badge-icon {
+  color: var(--color-clinical-teal);
+  flex-shrink: 0;
+}
+
+.about-img-badge strong {
+  display: block;
+  font-size: 0.88rem;
+  color: var(--color-primary-navy);
+}
+
+.about-img-badge span {
+  display: block;
+  font-size: 0.74rem;
+  color: var(--color-text-muted);
+}
+
+/* ── 2. VISION & MISSION ─────────────────── */
+.about-vision-mission-section {
+  padding: 80px 0;
+  background: var(--bg-page);
+}
+
+.vision-mission-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+.vm-card {
+  background-color: #FFFFFF;
+  padding: 38px 34px;
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  box-shadow: 0 6px 20px rgba(10, 30, 54, 0.04);
+  transition: all var(--transition-smooth);
+}
+
+.vm-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 36px rgba(10, 30, 54, 0.1);
+  border-color: var(--color-clinical-teal);
+}
+
+.vm-icon-box {
+  width: 56px;
+  height: 56px;
+  background: linear-gradient(135deg, #E6F7F6 0%, #DDF3F1 100%);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-clinical-teal);
+  margin-bottom: 20px;
+}
+
+.vm-icon-box.gold-icon {
+  background: linear-gradient(135deg, #FEF6E9 0%, #FDF0DE 100%);
+  color: #C89538;
+}
+
+.vm-card h3 {
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--color-primary-navy);
+  margin-bottom: 12px;
+}
+
+.vm-card p {
+  font-size: 0.98rem;
+  line-height: 1.7;
+  color: var(--color-text-secondary);
+}
+
+/* ── 3. THREE PILLARS (Listen, Evaluate, Explain) ── */
+.about-pillars-section {
+  padding: 84px 0;
+  background-color: #FFFFFF;
+  border-top: 1px solid rgba(226, 232, 240, 0.7);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.7);
+}
+
+.three-pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-top: 40px;
+}
+
+.pillar-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: var(--bg-page);
+  padding: 34px 26px;
+  border-radius: var(--radius-xl);
+  border: 1px solid #E2E8F0;
+  transition: all var(--transition-smooth);
+}
+
+.pillar-item:hover {
+  transform: translateY(-6px);
+  background: #FFFFFF;
+  border-color: var(--color-clinical-teal);
+  box-shadow: 0 12px 30px rgba(13, 148, 136, 0.12);
+}
+
+.pillar-circle-icon {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background-color: #FEF6E9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #C89538;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 14px rgba(200, 149, 56, 0.15);
+}
+
+.pillar-circle-icon.teal-pillar {
+  background-color: #E6F7F6;
+  color: var(--color-clinical-teal);
+  box-shadow: 0 4px 14px rgba(13, 148, 136, 0.15);
+}
+
+.pillar-circle-icon.navy-pillar {
+  background-color: #EBF2FA;
+  color: var(--color-primary-navy);
+  box-shadow: 0 4px 14px rgba(10, 30, 54, 0.15);
+}
+
+.pillar-item h4 {
+  font-family: var(--font-sans);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--color-primary-navy);
+  margin-bottom: 10px;
+}
+
+.pillar-item p {
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: var(--color-text-muted);
+}
+
+/* ── 4. TEAM SECTION ─────────────────────── */
+.about-team-section {
+  padding: 84px 0 20px;
+}
+
+.about-team-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-top: 36px;
+}
+
+.about-doctor-card {
+  background-color: #FFFFFF;
+  padding: 32px;
+  border-radius: var(--radius-xl);
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  box-shadow: 0 6px 20px rgba(10, 30, 54, 0.05);
+  transition: all var(--transition-smooth);
+}
+
+.about-doctor-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--color-clinical-teal);
+  box-shadow: 0 16px 36px rgba(10, 30, 54, 0.1);
+}
+
+.about-emblem-badge {
+  width: 80px;
+  height: 80px;
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  flex-shrink: 0;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+}
+
+.about-emblem-badge.teal-emblem {
+  background: linear-gradient(135deg, #0F766E 0%, #0D9488 50%, #06B6D4 100%);
+}
+
+.about-emblem-badge.navy-emblem {
+  background: linear-gradient(135deg, #061527 0%, #0A1E36 50%, #16365C 100%);
+  color: #2DD4BF;
+}
+
+.about-doc-info h3 {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--color-primary-navy);
+  margin-bottom: 4px;
+}
+
+.doc-specialty {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #C89538;
+  margin-bottom: 10px;
+}
+
+.about-doc-info p {
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+  line-height: 1.55;
+  margin-bottom: 14px;
+}
+
+.about-doc-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: var(--color-clinical-teal);
+  transition: transform var(--transition-fast);
+}
+
+.about-doc-link:hover {
+  transform: translateX(4px);
+  color: var(--color-dark-teal);
+}
+
+@media (max-width: 900px) {
+  .about-hero-grid,
+  .vision-mission-grid,
+  .about-team-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .three-pillars-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .about-doctor-card {
+    flex-direction: column;
+    text-align: center;
+  }
+}

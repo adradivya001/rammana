@@ -1,0 +1,308 @@
+/* ==========================================
+   DOCTORS PAGE LUXURY STYLES (NO DOCTOR PHOTOS)
+   ========================================== */
+
+.doctors-page {
+  background-color: var(--bg-page);
+  padding-bottom: 80px;
+}
+
+.doctors-hero-section {
+  padding: 60px 0 60px;
+  background: radial-gradient(120% 120% at 50% 0%, #FAF4EE 0%, #F5EFE6 50%, #EBF7F6 100%);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+.doctors-hero-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.4rem, 4vw, 3.4rem);
+  font-weight: 800;
+  color: var(--color-primary-navy);
+  margin: 12px 0;
+}
+
+.doctors-hero-subtitle {
+  font-size: 1.1rem;
+  line-height: 1.68;
+  color: var(--color-text-secondary);
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+/* Doctors List Grid */
+.doctors-list-section {
+  padding: 70px 0;
+}
+
+.doctors-full-cards-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px;
+}
+
+.doctor-master-card {
+  background: #FFFFFF;
+  border-radius: var(--radius-xl);
+  padding: 42px;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  box-shadow: 0 10px 32px rgba(6, 21, 39, 0.05);
+  display: flex;
+  flex-direction: column;
+  transition: all var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+}
+
+.doctor-master-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, #0F766E, #0D9488, #06B6D4);
+}
+
+.doctor-master-card.theme-diabetes::before {
+  background: linear-gradient(90deg, #061527, #0A1E36, #0D9488);
+}
+
+.doctor-master-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--color-clinical-teal);
+  box-shadow: 0 24px 56px rgba(6, 21, 39, 0.12);
+}
+
+.doc-top-profile-row {
+  display: flex;
+  gap: 22px;
+  align-items: center;
+  padding-bottom: 22px;
+  border-bottom: 1px solid #F1F5F9;
+  margin-bottom: 20px;
+}
+
+.doc-insignia-shield {
+  width: 80px;
+  height: 80px;
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  flex-shrink: 0;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.shield-teal-glow {
+  background: linear-gradient(135deg, #0F766E 0%, #0D9488 50%, #06B6D4 100%);
+  box-shadow: 0 8px 24px rgba(13, 148, 136, 0.35);
+}
+
+.shield-navy-glow {
+  background: linear-gradient(135deg, #061527 0%, #0A1E36 50%, #16365C 100%);
+  color: #2DD4BF;
+  box-shadow: 0 8px 24px rgba(6, 21, 39, 0.35);
+}
+
+.doc-div-tag {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-clinical-teal);
+  margin-bottom: 3px;
+}
+
+.doc-full-name {
+  font-family: var(--font-serif);
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: var(--color-primary-navy);
+  line-height: 1.2;
+}
+
+.doc-full-designation {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  margin-bottom: 6px;
+}
+
+.doc-honor-badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #D4AF37;
+  background: #FEF9EE;
+  padding: 2px 10px;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.doc-cred-chips-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 22px;
+}
+
+.cred-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.76rem;
+  font-weight: 700;
+  padding: 4px 11px;
+  border-radius: var(--radius-full);
+  background: var(--bg-page);
+  color: var(--color-text-secondary);
+  border: 1px solid #E2E8F0;
+}
+
+.cred-cap-icon {
+  color: var(--color-clinical-teal);
+}
+
+.doc-full-bio-text {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--color-text-secondary);
+  margin-bottom: 20px;
+}
+
+.doc-philosophy-quote {
+  background: var(--bg-page);
+  padding: 18px 22px;
+  border-radius: var(--radius-md);
+  border-left: 3.5px solid var(--color-clinical-teal);
+  margin-bottom: 26px;
+}
+
+.theme-diabetes .doc-philosophy-quote {
+  border-left-color: #061527;
+}
+
+.quote-label {
+  display: block;
+  font-size: 0.76rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--color-clinical-teal);
+  margin-bottom: 4px;
+}
+
+.theme-diabetes .quote-label {
+  color: #0A1E36;
+}
+
+.doc-philosophy-quote p {
+  font-size: 0.92rem;
+  font-style: italic;
+  color: var(--color-text-primary);
+  line-height: 1.55;
+  margin: 0;
+}
+
+.focus-header-title {
+  font-family: var(--font-sans);
+  font-size: 0.96rem;
+  font-weight: 800;
+  color: var(--color-primary-navy);
+  margin-bottom: 12px;
+}
+
+.doc-focus-items-grid {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.doc-focus-items-grid li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.88rem;
+  color: var(--color-text-secondary);
+  line-height: 1.45;
+}
+
+.focus-check-teal {
+  color: var(--color-clinical-teal);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.focus-check-navy {
+  color: #0284C7;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.doc-card-footer-action {
+  margin-top: auto;
+  padding-top: 24px;
+  border-top: 1px solid #F1F5F9;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.doc-timing-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.86rem;
+  color: var(--color-text-muted);
+}
+
+.clock-icon {
+  color: var(--color-clinical-teal);
+}
+
+/* Standards Strip */
+.clinical-standards-strip {
+  background: #FFFFFF;
+  padding: 64px 0;
+  border-top: 1px solid rgba(226, 232, 240, 0.7);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.7);
+}
+
+.standards-icon {
+  color: var(--color-clinical-teal);
+  margin-bottom: 16px;
+}
+
+.standards-title {
+  font-family: var(--font-serif);
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: var(--color-primary-navy);
+  margin-bottom: 12px;
+}
+
+.standards-sub {
+  font-size: 1.05rem;
+  line-height: 1.68;
+  color: var(--color-text-muted);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+@media (max-width: 1024px) {
+  .doctors-full-cards-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .doc-top-profile-row {
+    flex-direction: column;
+    text-align: center;
+  }
+}

@@ -8,9 +8,9 @@
 }
 
 .reviews-hero-section {
-  padding: 60px 0 60px;
-  background: linear-gradient(135deg, #FAF4EE 0%, #F5EFE6 50%, #EBF7F6 100%);
-  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+  padding: 105px 0 60px;
+  background: linear-gradient(135deg, #FAF4EE 0%, #FBF8F3 50%, #EBF7F6 100%);
+  border-bottom: 1px solid rgba(7, 26, 47, 0.08);
 }
 
 .reviews-hero-title {
@@ -18,13 +18,15 @@
   font-size: clamp(2.4rem, 4vw, 3.4rem);
   font-weight: 800;
   color: var(--color-primary-navy);
-  margin: 12px 0;
+  margin: 14px 0;
+  line-height: 1.15;
 }
 
 .reviews-hero-subtitle {
-  font-size: 1.1rem;
+  font-family: var(--font-sans);
+  font-size: 1.08rem;
   line-height: 1.68;
-  color: var(--color-text-secondary);
+  color: var(--color-secondary-navy);
   max-width: 640px;
   margin: 0 auto;
 }

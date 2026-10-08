@@ -1,93 +1,93 @@
 import React from 'react';
-import { Calendar, Phone, ArrowRight, ShieldCheck, MessageCircle } from 'lucide-react';
+import { Calendar, ArrowRight, ShieldCheck } from 'lucide-react';
 import './Hero.css';
 
 export default function Hero({ onOpenBooking, data }) {
-  // Use provided data or fallback to Vasundhara default
   const content = data || {
-    eyebrow: "SPECIALIZED DIAGNOSTICS & FETAL MEDICINE",
-    title1: "Advanced Diagnostics.",
-    title2: "Specialized Fetal Care.",
-    desc: "Specialized diagnostic imaging and fetal medicine care in Sai Nagar, Anantapur, led by Dr. N. Vasundhara, MBBS, MD Radiology, Fellow in Fetal Medicine.",
-    buttonText: "Book Appointment",
-    badgeText: "Specialized Care • Sai Nagar, Anantapur",
-    stats: [
-      { value: "Fetal Medicine", label: "SPECIALIZED CARE" },
-      { value: "Diagnostic Imaging", label: "ADVANCED SCANS" },
-      { value: "Radiology", label: "MEDICAL IMAGING" },
-      { value: "Sai Nagar", label: "ANANTAPUR" }
+    eyebrow: "VASUNDHARA • FETAL MEDICINE & DIAGNOSTICS",
+    title1: "Specialized Care.",
+    title2: "One Trusted Centre.",
+    desc: "Compassionate fetal medicine, advanced diagnostics, pregnancy imaging and diabetes care — brought together under one trusted centre in Sai Nagar, Anantapur.",
+    primaryCta: "Book an Appointment",
+    secondaryCta: "Explore Our Care",
+    badgeText: "Led by Dr. N. Vasundhara (Fetal Medicine) & Dr. Sai Kiran (Diabetology)",
+    trustItems: [
+      { label: "Fetal Medicine", detail: "Expert Prenatal Care" },
+      { label: "Advanced Diagnostics", detail: "Precision Scans" },
+      { label: "Pregnancy Imaging", detail: "4D High Definition" },
+      { label: "Diabetes Care", detail: "Sai Kiran Clinic" },
+      { label: "Patient-Centred", detail: "Compassionate Focus" }
     ],
-    image: "/images/vasundhara_building.jpg",
-    imageAlt: "Vasundhara Diagnostics & Sai Kiran Hospital Building in Sai Nagar Anantapur"
+    backgroundImage: "/images/herosection.png"
   };
 
   return (
-    <section id="hero" className="hero-section-ref">
-      <div className="container hero-container-ref">
-        {/* Left Column Content */}
-        <div className="hero-content-ref">
-          {/* Eyebrow Pill */}
-          <div className="eyebrow-badge-green">
-            <span className="live-dot-green"></span>
-            {content.eyebrow}
+    <section id="hero" className="hero-cinematic-section">
+      {/* 1. CINEMATIC FULL-WIDTH BACKGROUND VISUAL LAYER */}
+      <div 
+        className="hero-background-visual"
+        style={{ backgroundImage: `url(${content.backgroundImage})` }}
+        aria-hidden="true"
+      ></div>
+
+      {/* 2. HTML CONTENT LAYER (Positioned directly in empty LEFT negative space) */}
+      <div className="hero-content-container">
+        <div className="hero-editorial-left">
+          
+          {/* Eyebrow Badge */}
+          <div className="hero-eyebrow-pill">
+            <span className="eyebrow-pulse-dot"></span>
+            <span className="eyebrow-text">{content.eyebrow}</span>
           </div>
 
-          {/* Main Headline */}
-          <h1 className="hero-title-ref">
+          {/* Main Headline (Editorial Serif) */}
+          <h1 className="hero-headline-serif">
             {content.title1}<br />
-            <span className="highlight-teal">{content.title2}</span>
+            <span className="headline-accent-teal">{content.title2}</span>
           </h1>
 
-          {/* Supporting Text */}
-          <p className="hero-desc-ref">
+          {/* Lead Description */}
+          <p className="hero-paragraph-lead">
             {content.desc}
           </p>
 
-          {/* Action Buttons */}
-          <div className="hero-buttons-ref">
-            <button onClick={() => onOpenBooking && onOpenBooking()} className="btn-pill-primary">
+          {/* Action Buttons Group */}
+          <div className="hero-actions-group">
+            <button 
+              onClick={() => onOpenBooking ? onOpenBooking() : (window.location.href = '/book-appointment')} 
+              className="btn-hero-primary-navy"
+            >
               <Calendar size={18} />
-              <span>{content.buttonText}</span>
+              <span>{content.primaryCta}</span>
               <ArrowRight size={18} />
             </button>
+
+            <a href="#services" className="btn-hero-secondary-outline">
+              <span>{content.secondaryCta}</span>
+            </a>
           </div>
 
-          {/* Verified Rating / Location Strip */}
-          <div className="hero-rating-strip">
-            <div className="specialized-strip-badge">
-              <ShieldCheck size={16} className="badge-shield-icon" />
-              <span>{content.badgeText}</span>
-            </div>
+          {/* Subtle Doctor Trust Badge */}
+          <div className="hero-doctor-badge">
+            <ShieldCheck size={16} className="doctor-badge-icon" />
+            <span>{content.badgeText}</span>
           </div>
 
-          {/* Bottom Cards */}
-          <div className="hero-stats-grid">
-            {content.stats.map((stat, i) => (
-              <div className="stat-card" key={i}>
-                <span className="stat-value">{stat.value}</span>
-                <span className="stat-label">{stat.label}</span>
-              </div>
-            ))}
-          </div>
         </div>
+      </div>
 
-        {/* Right Column: Photo Card */}
-        <div className="hero-visual-ref">
-          <div className="building-card-frame">
-            <img 
-              src={content.image} 
-              alt={content.imageAlt} 
-              className="building-img-ref"
-              style={{
-                objectFit: content.imageFit || 'cover',
-                objectPosition: content.imagePosition || 'center center',
-                ...(content.imageStyle || {})
-              }}
-              width="600"
-              height="650"
-              loading="eager"
-            />
-          </div>
+      {/* 3. OVERLAPPING HERO TRUST STRIP AT BOTTOM */}
+      <div className="hero-trust-strip-bar">
+        <div className="trust-strip-container">
+          {content.trustItems.map((item, idx) => (
+            <div key={idx} className="trust-strip-item">
+              <div className="trust-item-bullet"></div>
+              <div className="trust-item-text">
+                <span className="trust-item-title">{item.label}</span>
+                <span className="trust-item-detail">{item.detail}</span>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

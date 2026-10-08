@@ -9,8 +9,8 @@ import {
   ShieldCheck, 
   Calendar,
   MessageCircle,
-  ExternalLink,
-  Sparkles
+  Sparkles,
+  Navigation
 } from 'lucide-react';
 import { siteConfig } from '../data/siteData';
 import './Contact.css';
@@ -21,7 +21,7 @@ export default function Contact() {
     phone: '',
     service: 'fetal-medicine',
     date: '',
-    time: '',
+    time: 'Morning (9 AM - 1 PM)',
     message: ''
   });
   const [submitted, setSubmitted] = useState(false);
@@ -36,17 +36,19 @@ export default function Contact() {
       <div className="container">
         
         {/* Header */}
-        <div className="ref-section-header text-center pt-5">
-          <span className="ref-section-tag">Reach Out &amp; Visit</span>
-          <h1 className="ref-section-heading">We're Here to Help</h1>
-          <p className="ref-section-sub">Book an appointment, get driving directions, or connect directly with our desk reception.</p>
+        <div className="contact-header-block text-center">
+          <span className="section-eyebrow-pill">REACH OUT &amp; VISIT</span>
+          <h1 className="section-title-serif">Connect With Our Medical Team</h1>
+          <p className="section-subtitle-sans">
+            Book an appointment, get driving directions to Sai Nagar Anantapur, or speak directly with our reception desk.
+          </p>
         </div>
 
         <div className="contact-main-grid">
           
           {/* Left Column: Clinic Contact Details & Map */}
           <div className="contact-info-col">
-            <div className="contact-info-card">
+            <div className="contact-info-card global-card">
               
               <div className="contact-detail-row">
                 <div className="contact-icon-circle">
@@ -54,7 +56,16 @@ export default function Contact() {
                 </div>
                 <div>
                   <h4>Centre Address</h4>
-                  <p>Sai Nagar Main Double Road Avenue, Anantapur, Andhra Pradesh – 515001</p>
+                  <p>Sai Nagar Double Road, Anantapur, Andhra Pradesh – 515001</p>
+                  <a 
+                    href={siteConfig.contact.googleMapsLink} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="directions-link"
+                  >
+                    <Navigation size={13} />
+                    <span>Get Driving Directions</span>
+                  </a>
                 </div>
               </div>
 
@@ -65,8 +76,8 @@ export default function Contact() {
                 <div>
                   <h4>Reception Desk &amp; Helpline</h4>
                   <p>
-                    Desk: <a href={`tel:${siteConfig.contact.phoneDeskRaw}`}>{siteConfig.contact.phoneDesk}</a><br />
-                    Helpline: <a href={`tel:${siteConfig.contact.hotlineRaw}`}>{siteConfig.contact.hotline}</a>
+                    Desk: <a href={`tel:${siteConfig.contact.phoneDeskRaw}`}>+91 {siteConfig.contact.phoneDesk}</a><br />
+                    Hotline: <a href={`tel:${siteConfig.contact.hotlineRaw}`}>{siteConfig.contact.hotline}</a>
                   </p>
                 </div>
               </div>
@@ -89,20 +100,20 @@ export default function Contact() {
                   className="contact-wa-btn"
                 >
                   <MessageCircle size={18} />
-                  <span>Instant WhatsApp Helpdesk</span>
+                  <span>Instant WhatsApp Desk</span>
                 </a>
               </div>
 
             </div>
 
-            {/* Stylized Google Map View */}
+            {/* Google Map View */}
             <div className="contact-map-container">
               <iframe
                 title="Vasundhara Diagnostics Location Map"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3858.918987627718!2d77.59868777598466!3d14.686036085810057!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bb14b09cf9326d9%3A0xb3e12be8f3b2554e!2sSai%20Nagar%2C%20Anantapur%2C%20Andhra%20Pradesh!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
                 width="100%"
-                height="260"
-                style={{ border: 0, borderRadius: 'var(--radius-lg)' }}
+                height="280"
+                style={{ border: 0, borderRadius: '20px' }}
                 allowFullScreen=""
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
@@ -112,19 +123,19 @@ export default function Contact() {
 
           {/* Right Column: Request an Appointment Form */}
           <div className="contact-form-col">
-            <div className="appointment-request-card">
-              <span className="form-kicker">Quick Booking Request</span>
-              <h3>Request an Appointment</h3>
-              <p className="form-sub-desc">Fill out the details below and our clinic reception will confirm your time slot promptly.</p>
+            <div className="appointment-request-card global-card">
+              <span className="form-kicker">QUICK BOOKING REQUEST</span>
+              <h3 className="form-heading-serif">Request an Appointment</h3>
+              <p className="form-sub-desc">Fill out the details below and our clinic reception will confirm your slot promptly.</p>
               
               {submitted ? (
                 <div className="form-success-alert">
-                  <CheckCircle2 size={42} className="success-icon" />
+                  <CheckCircle2 size={46} className="success-icon" />
                   <h4>Appointment Request Received!</h4>
-                  <p>Thank you, {formData.fullName}. Our clinic reception will call you shortly at <strong>{formData.phone}</strong> to confirm your slot.</p>
+                  <p>Thank you <strong>{formData.fullName}</strong>. Our care coordinator will call you shortly at <strong>{formData.phone}</strong> to confirm your appointment time.</p>
                   <button 
                     type="button" 
-                    className="ref-btn-teal mt-3"
+                    className="btn-primary-navy mt-3"
                     onClick={() => setSubmitted(false)}
                   >
                     <span>Submit Another Request</span>
@@ -157,7 +168,7 @@ export default function Contact() {
                   </div>
 
                   <div className="form-group-wrap">
-                    <label htmlFor="service">Care Division / Service</label>
+                    <label htmlFor="service">Select Specialty / Service</label>
                     <select 
                       id="service" 
                       value={formData.service}
@@ -184,15 +195,15 @@ export default function Contact() {
                       />
                     </div>
                     <div className="form-group-wrap">
-                      <label htmlFor="time">Preferred Time</label>
+                      <label htmlFor="time">Preferred Time Slot</label>
                       <select 
                         id="time" 
                         value={formData.time}
                         onChange={(e) => setFormData({ ...formData, time: e.target.value })}
                       >
-                        <option value="morning">Morning (9:30 AM – 1:00 PM)</option>
-                        <option value="afternoon">Afternoon (1:00 PM – 4:00 PM)</option>
-                        <option value="evening">Evening (4:30 PM – 8:00 PM)</option>
+                        <option value="Morning (9 AM - 1 PM)">Morning (9:30 AM – 1:00 PM)</option>
+                        <option value="Afternoon (1 PM - 4 PM)">Afternoon (1:00 PM – 4:00 PM)</option>
+                        <option value="Evening (4 PM - 8 PM)">Evening (4:30 PM – 8:00 PM)</option>
                       </select>
                     </div>
                   </div>
@@ -202,14 +213,14 @@ export default function Contact() {
                     <textarea 
                       id="message" 
                       rows="3" 
-                      placeholder="Any specific symptoms or referring doctor recommendations..."
+                      placeholder="Any specific symptoms or doctor recommendations..."
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     ></textarea>
                   </div>
 
-                  <button type="submit" className="ref-btn-teal full-width submit-btn">
-                    <Calendar size={17} />
+                  <button type="submit" className="btn-primary-navy full-width submit-btn">
+                    <Calendar size={18} />
                     <span>Send Appointment Request</span>
                     <ArrowRight size={16} />
                   </button>

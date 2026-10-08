@@ -1,239 +1,421 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { 
-  Baby, 
-  Scan, 
-  Stethoscope, 
-  ShieldCheck, 
-  Clock, 
-  ArrowRight, 
-  CheckCircle2, 
-  Sparkles, 
   Calendar, 
-  FileText, 
+  Phone, 
+  ArrowRight, 
+  ShieldCheck, 
+  Sparkles, 
+  Activity, 
   Heart, 
-  Microscope, 
-  Info,
-  ChevronRight,
-  Phone,
-  Award
+  CheckCircle2, 
+  Clock, 
+  Info, 
+  HelpCircle, 
+  X, 
+  FileText,
+  UserCheck,
+  Layers,
+  Search
 } from 'lucide-react';
 import { siteConfig } from '../data/siteData';
-import motherImg from '../assets/mother_pregnancy_art_1791288807641.jpg';
+import { allServicesMap } from '../data/servicesData';
+import AppointmentModal from '../components/AppointmentModal';
 import './FetalMedicine.css';
 
-export default function FetalMedicine() {
-  const [activeScanIdx, setActiveScanIdx] = useState(0);
+const FETAL_SERVICES_LIST = [
+  {
+    id: "nt-scan",
+    title: "First Trimester NT Scan & Anomaly Risk",
+    shortDescription: "Early pregnancy screening.",
+    image: "/images/fetal_feature_care.jpg"
+  },
+  {
+    id: "tiffa-scan",
+    title: "Targeted Anomaly Scan (TIFFA / Level II)",
+    shortDescription: "Detailed fetal anatomy assessment.",
+    image: "/images/hero-fetal-scan.jpg"
+  },
+  {
+    id: "fetal-growth-doppler-hemodynamics",
+    title: "Fetal Growth & Doppler",
+    shortDescription: "Growth and blood-flow assessment.",
+    image: "/images/hero-pregnant-woman.jpg"
+  },
+  {
+    id: "anomaly-scan",
+    title: "Anomaly Scan",
+    shortDescription: "Detailed fetal development evaluation.",
+    image: "/images/fetal_ultrasound_suite.jpg"
+  },
+  {
+    id: "antenatal-sonography",
+    title: "Antenatal Sonography",
+    shortDescription: "Pregnancy imaging and monitoring.",
+    image: "/images/about_clinic_interior.jpg"
+  }
+];
 
-  const scansList = [
-    {
-      title: "Early Pregnancy & Viability Scan",
-      timing: "6 – 10 Weeks",
-      purpose: "Confirming intrauterine pregnancy, cardiac activity, singleton or multiple gestation, and accurate gestational age dating.",
-      prep: "Drink 2–3 glasses of water 45 minutes before scan for comfortable visualization."
-    },
-    {
-      title: "First Trimester NT Scan & Anomaly Risk",
-      timing: "11 – 13+6 Weeks",
-      purpose: "Precision millimeter measurement of nuchal translucency, nasal bone assessment, ductus venosus Doppler, and early structural anomaly screening.",
-      prep: "Normal food intake; fasting is not required. Please bring all previous scan records."
-    },
-    {
-      title: "Targeted Anomaly Scan (TIFFA / Level II)",
-      timing: "18 – 22 Weeks",
-      purpose: "Comprehensive structural evaluation of fetal brain, four-chamber heart, facial profile, spine, kidneys, stomach, umbilical cord, and limbs.",
-      prep: "Wear comfortable two-piece clothing. Scan duration is approximately 30–45 minutes."
-    },
-    {
-      title: "Fetal Growth & Doppler Hemodynamics",
-      timing: "28 – 36 Weeks",
-      purpose: "Tracking fetal estimated weight velocity, amniotic fluid index (AFI), placental maturity, and umbilical/cerebral artery Doppler blood flow.",
-      prep: "Normal diet. High-resolution verified report and image plates provided immediately."
+export default function FetalMedicine() {
+  const [selectedService, setSelectedService] = useState(null);
+  const [isBookingOpen, setIsBookingOpen] = useState(false);
+  const [bookingServiceTitle, setBookingServiceTitle] = useState('Fetal Medicine Scan');
+
+  const handleStartBooking = (serviceTitle) => {
+    setBookingServiceTitle(serviceTitle || 'Fetal Medicine Scan');
+    setIsBookingOpen(true);
+  };
+
+  const handleOpenLearnMore = (serviceId) => {
+    const serviceData = allServicesMap[serviceId];
+    if (serviceData) {
+      setSelectedService(serviceData);
     }
-  ];
+  };
 
   return (
-    <div className="fetal-ref-page">
+    <div className="fetal-medicine-page">
       
-      {/* ── 1. FETAL MEDICINE HERO ────────────────────────── */}
+      {/* 1. HERO SECTION */}
       <section className="fetal-hero-section">
-        <div className="container fetal-hero-grid">
-          
-          <div className="fetal-hero-left">
-            <div className="fetal-badge">
-              <Sparkles size={14} className="badge-sparkle" />
-              <span>Specialized Maternal-Fetal Division</span>
+        <div className="container fetal-hero-container">
+          <div className="fetal-hero-text">
+            <div className="fetal-hero-badge">
+              <Sparkles size={14} className="badge-sparkle-icon" />
+              <span>SPECIALIZED MATERNAL–FETAL DIVISION</span>
             </div>
-
             <h1 className="fetal-hero-title">
-              Specialized Fetal Medicine<br />
-              <span>for Every Stage of Pregnancy</span>
+              Fetal Medicine &amp; Ultrasound Imaging
             </h1>
-
             <p className="fetal-hero-desc">
-              Dedicated prenatal assessment, high-resolution 3D/4D ultrasound imaging, genetic anomaly risk screening, and compassionate maternal guidance led personally by Dr. N. Vasundhara.
+              Advanced pregnancy imaging and fetal assessment for informed care throughout pregnancy.
             </p>
 
             <div className="fetal-hero-actions">
-              <Link to="/book-appointment?division=fetal" className="ref-btn-teal">
-                <Calendar size={17} />
+              <button 
+                onClick={() => handleStartBooking('Fetal Scan Appointment')} 
+                className="btn-fetal-primary"
+              >
+                <Calendar size={18} />
                 <span>Book Fetal Scan Appointment</span>
-                <ArrowRight size={16} />
-              </Link>
-              <a href={`tel:${siteConfig.contact.phoneDeskRaw}`} className="ref-btn-outline">
+                <ArrowRight size={18} />
+              </button>
+              <a href={`tel:${siteConfig.contact.phoneDeskRaw}`} className="btn-fetal-outline">
                 <Phone size={16} />
-                <span>Call Desk: {siteConfig.contact.phoneDesk}</span>
+                <span>Call Helpline: {siteConfig.contact.phoneDesk}</span>
               </a>
             </div>
           </div>
 
-          <div className="fetal-hero-right">
-            <div className="fetal-image-wrap">
-              <div className="fetal-image-frame">
-                <img 
-                  src={motherImg} 
-                  alt="Fetal Medicine & Pregnancy Imaging" 
-                  className="fetal-hero-img" 
-                />
-              </div>
-              <div className="fetal-floating-card">
-                <div className="fetal-badge-icon">
-                  <Baby size={22} />
-                </div>
-                <div>
-                  <strong>Fellow in Fetal Medicine</strong>
-                  <span>High-Resolution Anomaly &amp; Doppler Scans</span>
-                </div>
-              </div>
-            </div>
+          <div className="fetal-hero-visual-frame">
+            <img 
+              src="/images/fetal_feature_care.jpg" 
+              alt="Fetal Medicine and Pregnancy Imaging" 
+              className="fetal-hero-img"
+              loading="eager"
+            />
           </div>
-
         </div>
       </section>
 
-      {/* ── 2. PREGNANCY SCAN ROADMAP (Interactive Tabs) ─── */}
-      <section className="fetal-scans-roadmap-section">
+      {/* 2. SPECIALIZED CARE STRIP */}
+      <section className="fetal-care-strip-section">
         <div className="container">
-          <div className="ref-section-header text-center">
-            <span className="ref-section-tag">Trimester by Trimester</span>
-            <h2 className="ref-section-heading">Key Pregnancy Scans &amp; Timeline</h2>
-            <p className="ref-section-sub">Comprehensive timeline of essential prenatal scans to safeguard your baby's development.</p>
-          </div>
-
-          <div className="fetal-scans-layout">
-            <div className="scan-tabs-sidebar">
-              {scansList.map((scan, idx) => (
-                <button
-                  key={idx}
-                  type="button"
-                  className={`scan-tab-btn ${activeScanIdx === idx ? 'active' : ''}`}
-                  onClick={() => setActiveScanIdx(idx)}
-                >
-                  <div className="tab-timing-badge">{scan.timing}</div>
-                  <div className="tab-title-text">{scan.title}</div>
-                  <ChevronRight size={16} className="tab-arrow" />
-                </button>
-              ))}
+          <div className="fetal-care-strip-grid">
+            <div className="fetal-strip-item">
+              <Heart size={18} className="strip-icon" />
+              <span>Early Pregnancy Assessment</span>
             </div>
-
-            <div className="scan-detail-card">
-              <div className="scan-card-header">
-                <div className="scan-card-timing">{scansList[activeScanIdx].timing}</div>
-                <h3 className="scan-card-title">{scansList[activeScanIdx].title}</h3>
-              </div>
-
-              <div className="scan-card-body">
-                <div className="scan-info-block">
-                  <h4><CheckCircle2 size={18} className="info-icon" /> Clinical Purpose &amp; What We Evaluate</h4>
-                  <p>{scansList[activeScanIdx].purpose}</p>
-                </div>
-
-                <div className="scan-info-block prep-block">
-                  <h4><Info size={18} className="info-icon prep-icon" /> Patient Preparation &amp; Instructions</h4>
-                  <p>{scansList[activeScanIdx].prep}</p>
-                </div>
-
-                <div className="scan-card-footer">
-                  <Link to="/book-appointment?division=fetal" className="ref-btn-teal">
-                    <Calendar size={16} />
-                    <span>Book This Scan</span>
-                    <ArrowRight size={16} />
-                  </Link>
-                  <span className="scan-doctor-lead">Verified by Dr. N. Vasundhara</span>
-                </div>
-              </div>
+            <div className="fetal-strip-item">
+              <Search size={18} className="strip-icon" />
+              <span>NT &amp; Anomaly Screening</span>
+            </div>
+            <div className="fetal-strip-item">
+              <Activity size={18} className="strip-icon" />
+              <span>Fetal Growth Assessment</span>
+            </div>
+            <div className="fetal-strip-item">
+              <Layers size={18} className="strip-icon" />
+              <span>Doppler Assessment</span>
+            </div>
+            <div className="fetal-strip-item">
+              <Sparkles size={18} className="strip-icon" />
+              <span>3D / 4D Imaging</span>
             </div>
           </div>
-
         </div>
       </section>
 
-      {/* ── 3. CLINICAL ADVANTAGES ───────────────────────── */}
-      <section className="fetal-advantages-section">
+      {/* 3. INTRODUCTION SECTION */}
+      <section className="fetal-intro-section">
+        <div className="container fetal-intro-grid">
+          <div className="fetal-intro-left">
+            <span className="section-eyebrow-pill">COMPREHENSIVE CARE</span>
+            <h2 className="fetal-section-title">Specialised Care for Mother &amp; Baby</h2>
+            <p className="fetal-body-lead">
+              Advanced fetal assessment and pregnancy imaging designed to support confident care at every stage.
+            </p>
+          </div>
+          <div className="fetal-intro-right-img">
+            <img 
+              src="/images/fetal_ultrasound_suite.jpg" 
+              alt="Advanced Fetal Ultrasound Suite" 
+              className="intro-section-img"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* 4. PREGNANCY IMAGING JOURNEY */}
+      <section className="fetal-journey-section">
+        <div className="container text-center">
+          <span className="section-eyebrow-pill">PREGNANCY TIMELINE</span>
+          <h2 className="fetal-section-title">Your Pregnancy Imaging Journey</h2>
+          <p className="fetal-section-subtitle">
+            A clear pathway from early assessment to ongoing fetal care.
+          </p>
+
+          <div className="fetal-timeline-grid">
+            <div className="timeline-step-card">
+              <div className="step-number-badge">01</div>
+              <h3 className="step-title">Early Pregnancy</h3>
+              <p className="step-desc">Initial fetal assessment</p>
+            </div>
+            <div className="timeline-step-card">
+              <div className="step-number-badge">02</div>
+              <h3 className="step-title">First Trimester</h3>
+              <p className="step-desc">NT &amp; early screening</p>
+            </div>
+            <div className="timeline-step-card">
+              <div className="step-number-badge">03</div>
+              <h3 className="step-title">Growth &amp; Development</h3>
+              <p className="step-desc">Monitor fetal growth</p>
+            </div>
+            <div className="timeline-step-card">
+              <div className="step-number-badge">04</div>
+              <h3 className="step-title">Detailed Assessment</h3>
+              <p className="step-desc">Anatomy &amp; anomaly evaluation</p>
+            </div>
+            <div className="timeline-step-card">
+              <div className="step-number-badge">05</div>
+              <h3 className="step-title">Follow-up</h3>
+              <p className="step-desc">Ongoing fetal assessment</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 6. FEATURE BANNER */}
+      <section className="fetal-mid-banner-section">
+        <div className="container fetal-mid-banner-container">
+          <div className="fetal-banner-content">
+            <h2 className="fetal-banner-title">A Safer Tomorrow Through Expert Fetal Care</h2>
+            <p className="fetal-banner-desc">
+              Every stage of pregnancy deserves careful attention and clear diagnostic insight.
+            </p>
+            <button 
+              onClick={() => handleStartBooking('Fetal Scan Appointment')} 
+              className="btn-fetal-primary"
+            >
+              <span>Book Fetal Scan Appointment</span>
+              <ArrowRight size={16} />
+            </button>
+          </div>
+          <div className="fetal-banner-img-wrap">
+            <img 
+              src="/images/hero-pregnant-woman.jpg" 
+              alt="A Safer Tomorrow Through Expert Fetal Care" 
+              className="fetal-banner-img"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* 7. WHY CHOOSE US */}
+      <section className="fetal-why-section">
         <div className="container">
-          <div className="ref-section-header text-center">
-            <span className="ref-section-tag">Clinical Excellence</span>
-            <h2 className="ref-section-heading">Why Choose Vasundhara for Fetal Scans?</h2>
+          <div className="text-center section-header-margin">
+            <span className="section-eyebrow-pill">CLINICAL ADVANTAGES</span>
+            <h2 className="fetal-section-title">Why Choose Specialised Fetal Medicine Care?</h2>
           </div>
 
-          <div className="fetal-adv-grid">
-            <div className="fetal-adv-card">
-              <div className="adv-icon-box">
-                <ShieldCheck size={24} />
-              </div>
-              <h4>Fellowship-Trained Specialist</h4>
-              <p>Scans evaluated personally by Dr. N. Vasundhara with specialized fellowship qualification in fetal medicine.</p>
+          <div className="fetal-why-grid">
+            <div className="why-feature-card">
+              <div className="why-card-number">01</div>
+              <h3 className="why-card-title">Dedicated Expertise</h3>
+              <p className="why-card-desc">Specialised fetal medicine care</p>
             </div>
-
-            <div className="fetal-adv-card">
-              <div className="adv-icon-box">
-                <Scan size={24} />
-              </div>
-              <h4>Dedicated Parent-Viewing Suite</h4>
-              <p>Comfortable private scanning room with dedicated HD visual displays so you can view your baby in real time.</p>
+            <div className="why-feature-card">
+              <div className="why-card-number">02</div>
+              <h3 className="why-card-title">Advanced Imaging</h3>
+              <p className="why-card-desc">High-resolution ultrasound</p>
             </div>
-
-            <div className="fetal-adv-card">
-              <div className="adv-icon-box">
-                <FileText size={24} />
-              </div>
-              <h4>Immediate Verified Reports</h4>
-              <p>Structured clinical reports with high-resolution image captures provided shortly following the scan.</p>
+            <div className="why-feature-card">
+              <div className="why-card-number">03</div>
+              <h3 className="why-card-title">Detailed Assessment</h3>
+              <p className="why-card-desc">Comprehensive fetal evaluation</p>
+            </div>
+            <div className="why-feature-card">
+              <div className="why-card-number">04</div>
+              <h3 className="why-card-title">Clear Guidance</h3>
+              <p className="why-card-desc">Easy-to-understand findings</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ── 4. CLINICAL LEADERSHIP SPOTLIGHT (INSIGNIA) ──── */}
-      <section className="fetal-doctor-spotlight">
+      {/* 8. PATIENT GUIDE */}
+      <section className="fetal-prep-section">
         <div className="container">
-          <div className="fetal-doc-card">
-            <div className="fetal-lead-insignia">
-              <Baby size={44} />
-              <span className="insignia-pill">Fellowship Certified</span>
+          <div className="text-center section-header-margin">
+            <span className="section-eyebrow-pill">PATIENT GUIDE</span>
+            <h2 className="fetal-section-title">Before Your Fetal Scan</h2>
+          </div>
+
+          <div className="fetal-prep-grid">
+            <div className="prep-step-card">
+              <div className="prep-icon-box">
+                <FileText size={20} />
+              </div>
+              <h3 className="prep-title">Bring Previous Reports</h3>
+              <p className="prep-desc">Carry relevant scan reports.</p>
             </div>
-            <div className="fetal-doc-info">
-              <span className="doc-kicker">Lead Fetal Medicine Specialist</span>
-              <h2 className="doc-h-name">Dr. N. Vasundhara</h2>
-              <p className="doc-h-qual">MBBS, MD (Radiology) • Fellow in Fetal Medicine</p>
-              <p className="doc-h-bio">
-                "Every pregnancy is unique and precious. We provide a calm, reassuring environment where prenatal scans are conducted thoroughly, questions are answered with care, and findings are communicated transparently to you and your referring doctor."
-              </p>
-              <div className="doc-schedule-strip">
-                <Clock size={16} />
-                <span>OPD Hours: Mon – Sat: 9:30 AM – 2:00 PM &amp; 4:30 PM – 7:30 PM</span>
+            <div className="prep-step-card">
+              <div className="prep-icon-box">
+                <Clock size={20} />
               </div>
-              <div className="doc-btn-wrap">
-                <Link to="/book-appointment?division=fetal" className="ref-btn-teal">
-                  <span>Book Consultation with Dr. Vasundhara</span>
-                  <ArrowRight size={16} />
-                </Link>
+              <h3 className="prep-title">Know Your Pregnancy Stage</h3>
+              <p className="prep-desc">Know your current gestational age.</p>
+            </div>
+            <div className="prep-step-card">
+              <div className="prep-icon-box">
+                <CheckCircle2 size={20} />
               </div>
+              <h3 className="prep-title">Follow Clinic Instructions</h3>
+              <p className="prep-desc">Follow clinic preparation guidance.</p>
+            </div>
+            <div className="prep-step-card">
+              <div className="prep-icon-box">
+                <UserCheck size={20} />
+              </div>
+              <h3 className="prep-title">Ask Your Questions</h3>
+              <p className="prep-desc">Discuss your concerns with the team.</p>
             </div>
           </div>
         </div>
       </section>
 
+      {/* 9. FINAL CTA */}
+      <section className="fetal-final-cta-section">
+        <div className="container text-center">
+          <h2 className="final-cta-title">Your Pregnancy Deserves Expert Attention.</h2>
+          <p className="final-cta-desc">
+            Book your fetal medicine appointment for specialised pregnancy assessment and imaging.
+          </p>
+          <div className="final-cta-actions">
+            <button 
+              onClick={() => handleStartBooking('Fetal Scan Appointment')} 
+              className="btn-fetal-primary"
+            >
+              <Calendar size={18} />
+              <span>Book Fetal Scan Appointment</span>
+              <ArrowRight size={18} />
+            </button>
+            <a href={`tel:${siteConfig.contact.phoneDeskRaw}`} className="btn-fetal-outline">
+              <Phone size={16} />
+              <span>Call 79893 30974</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* 10. SERVICE COMPLETE DETAILS MODAL */}
+      {selectedService && (
+        <div className="services-modal-overlay service-detail-level" onClick={() => setSelectedService(null)}>
+          <div className="services-modal-container detail-view-container" onClick={(e) => e.stopPropagation()}>
+            <button className="services-modal-close" onClick={() => setSelectedService(null)} aria-label="Close">
+              <X size={20} />
+            </button>
+
+            <div className="service-detail-top">
+              <div className="service-detail-badge">{selectedService.categoryTitle}</div>
+              <h2 className="service-detail-title">{selectedService.title}</h2>
+              <p className="service-detail-short-lead">{selectedService.shortDescription}</p>
+            </div>
+
+            <div className="service-detail-body">
+              {selectedService.image && (
+                <div className="service-detail-img-box">
+                  <img src={selectedService.image} alt={selectedService.title} className="service-detail-img" />
+                </div>
+              )}
+
+              <div className="service-detail-sections">
+                {selectedService.whatIsIt && (
+                  <div className="detail-section-block">
+                    <div className="section-block-title">
+                      <Info size={18} className="block-icon" />
+                      <h3>What is this scan / service?</h3>
+                    </div>
+                    <p>{selectedService.whatIsIt}</p>
+                  </div>
+                )}
+
+                {selectedService.whyPerformed && (
+                  <div className="detail-section-block">
+                    <div className="section-block-title">
+                      <HelpCircle size={18} className="block-icon" />
+                      <h3>Why is it performed?</h3>
+                    </div>
+                    <p>{selectedService.whyPerformed}</p>
+                  </div>
+                )}
+
+                {selectedService.whenPerformed && (
+                  <div className="detail-section-block">
+                    <div className="section-block-title">
+                      <Clock size={18} className="block-icon" />
+                      <h3>When is it performed?</h3>
+                    </div>
+                    <p>{selectedService.whenPerformed}</p>
+                  </div>
+                )}
+
+                {selectedService.clinicalDetails && (
+                  <div className="detail-section-block">
+                    <div className="section-block-title">
+                      <ShieldCheck size={18} className="block-icon" />
+                      <h3>Clinical Standard &amp; Details</h3>
+                    </div>
+                    <p>{selectedService.clinicalDetails}</p>
+                  </div>
+                )}
+              </div>
+            </div>
+
+            <div className="service-detail-footer-cta">
+              <button 
+                onClick={() => {
+                  setSelectedService(null);
+                  handleStartBooking(selectedService.title);
+                }} 
+                className="btn-fetal-primary btn-full-width"
+              >
+                <Calendar size={18} />
+                <span>Book an Appointment for {selectedService.title}</span>
+                <ArrowRight size={18} />
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* 11. APPOINTMENT BOOKING MODAL */}
+      <AppointmentModal 
+        isOpen={isBookingOpen} 
+        onClose={() => setIsBookingOpen(false)} 
+        initialService={bookingServiceTitle}
+      />
     </div>
   );
 }

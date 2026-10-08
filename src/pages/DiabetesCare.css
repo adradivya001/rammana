@@ -1,419 +1,649 @@
-/* ==========================================
-   DIABETES CARE PAGE STYLES
-   ========================================== */
+/* ============================================================
+   SAI KIRAN DIABETIC CLINIC - DEDICATED DIABETES CARE PAGE STYLES
+   ============================================================ */
 
-.diabetes-ref-page {
-  background-color: var(--bg-page);
-  color: var(--color-text-primary);
-  padding-bottom: 80px;
+.diabetes-care-page {
+  background-color: var(--bg-page, #FAFBFD);
+  color: var(--color-text-primary, #061527);
+  min-height: 100vh;
 }
 
-/* ── 1. HERO ─────────────────────────────── */
+/* Common Section Headers */
+.section-header-margin {
+  margin-bottom: 3.25rem;
+}
+
+.section-eyebrow-pill {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #0284C7;
+  background: rgba(2, 132, 199, 0.08);
+  border: 1px solid rgba(2, 132, 199, 0.2);
+  padding: 0.35rem 1rem;
+  border-radius: 999px;
+  margin-bottom: 0.85rem;
+  text-transform: uppercase;
+}
+
+.diabetes-section-title {
+  font-family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+  font-size: clamp(2.2rem, 3.5vw, 3rem);
+  font-weight: 700;
+  color: #061527;
+  line-height: 1.15;
+  margin-bottom: 0.75rem;
+}
+
+.diabetes-section-subtitle {
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  color: #64748B;
+  max-width: 620px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* ============================================================
+   1. HERO SECTION
+   ============================================================ */
 .diabetes-hero-section {
-  padding: 60px 0 70px;
-  background: linear-gradient(135deg, #F5FBFB 0%, #EDF7F6 45%, #FAF4ED 100%);
-  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+  padding: 6.5rem 0 3.5rem;
+  background: linear-gradient(180deg, #EBF8FF 0%, #FAFBFD 100%);
+  border-bottom: 1px solid rgba(2, 132, 199, 0.12);
 }
 
-.diabetes-hero-grid {
-  display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  align-items: center;
-  gap: 48px;
-}
-
-.diabetes-badge {
+.diabetes-hero-badge {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  background: rgba(255, 255, 255, 0.9);
-  border: 1px solid rgba(13, 148, 136, 0.3);
-  padding: 6px 16px;
-  border-radius: var(--radius-full);
-  font-size: 0.78rem;
+  gap: 0.5rem;
+  font-size: 0.775rem;
   font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #0284C7;
+  background: rgba(2, 132, 199, 0.09);
+  border: 1px solid rgba(2, 132, 199, 0.22);
+  padding: 0.45rem 1.25rem;
+  border-radius: 999px;
+  margin-bottom: 1.25rem;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--color-dark-teal);
-  margin-bottom: 18px;
-  box-shadow: 0 2px 8px rgba(10, 30, 54, 0.04);
-}
-
-.badge-sparkle {
-  color: #0D9488;
 }
 
 .diabetes-hero-title {
-  font-family: var(--font-serif);
-  font-size: clamp(2.4rem, 4vw, 3.4rem);
-  font-weight: 800;
-  color: var(--color-primary-navy);
-  line-height: 1.18;
-  margin-bottom: 18px;
-}
-
-.diabetes-hero-title span {
-  display: block;
-  font-size: clamp(1.4rem, 2.3vw, 1.9rem);
-  color: var(--color-clinical-teal);
+  font-family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+  font-size: clamp(2.6rem, 4.2vw, 3.6rem);
   font-weight: 700;
-  margin-top: 6px;
+  color: #061527;
+  line-height: 1.1;
+  margin-bottom: 1.1rem;
 }
 
 .diabetes-hero-desc {
+  font-family: var(--font-sans);
   font-size: 1.1rem;
-  line-height: 1.7;
-  color: var(--color-text-secondary);
-  margin-bottom: 30px;
-  max-width: 540px;
+  color: #475569;
+  line-height: 1.65;
+  max-width: 720px;
+  margin: 0 auto 2.25rem auto;
 }
 
 .diabetes-hero-actions {
   display: flex;
   align-items: center;
-  gap: 16px;
+  justify-content: center;
+  gap: 1.1rem;
   flex-wrap: wrap;
 }
 
-.diabetes-image-wrap {
-  position: relative;
+.btn-diabetes-primary {
+  background-color: #061527;
+  color: #FFFFFF;
+  padding: 0.9rem 2rem;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  box-shadow: 0 6px 20px rgba(6, 21, 39, 0.16);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
 }
 
-.diabetes-image-frame {
-  border-radius: var(--radius-xl);
-  overflow: hidden;
-  box-shadow: 0 16px 40px rgba(10, 30, 54, 0.12);
-  border: 4px solid #FFFFFF;
+.btn-diabetes-primary:hover {
+  background-color: #0284C7;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(2, 132, 199, 0.3);
 }
 
-.diabetes-hero-img {
+.btn-diabetes-outline {
+  background-color: #FFFFFF;
+  color: #061527;
+  padding: 0.9rem 1.8rem;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: 1px solid #CBD5E1;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.btn-diabetes-outline:hover {
+  border-color: #0284C7;
+  color: #0284C7;
+  transform: translateY(-2px);
+}
+
+/* ============================================================
+   2. MAIN DIABETES IMAGE DISPLAY SECTION
+   ============================================================ */
+.diabetes-main-img-section {
+  padding: 3.5rem 0 4.5rem;
+}
+
+.diabetes-img-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.diabetes-img-card {
   width: 100%;
-  height: 400px;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 20px 48px rgba(6, 21, 39, 0.08);
+  border: 1px solid rgba(6, 21, 39, 0.08);
+  background-color: #FFFFFF;
+}
+
+.diabetes-full-banner-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ============================================================
+   3. 5 CARE AREAS SECTION
+   ============================================================ */
+.diabetes-care-areas-section {
+  padding: 4.5rem 0 5rem;
+  background-color: #FFFFFF;
+  border-top: 1px solid rgba(6, 21, 39, 0.05);
+  border-bottom: 1px solid rgba(6, 21, 39, 0.05);
+}
+
+.care-areas-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.25rem;
+}
+
+.care-area-card {
+  background: #FAFBFD;
+  border: 1px solid #E2E8F0;
+  border-radius: 18px;
+  padding: 1.75rem 1.25rem;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.care-area-card:hover {
+  transform: translateY(-4px);
+  border-color: #0284C7;
+  box-shadow: 0 12px 28px rgba(2, 132, 199, 0.1);
+  background: #FFFFFF;
+}
+
+.care-area-icon-wrap {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: rgba(2, 132, 199, 0.1);
+  color: #0284C7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.25rem auto;
+}
+
+.care-area-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #061527;
+  margin-bottom: 0.6rem;
+}
+
+.care-area-desc {
+  font-size: 0.85rem;
+  color: #64748B;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ============================================================
+   4. DIABETES CARE JOURNEY
+   ============================================================ */
+.diabetes-journey-section {
+  padding: 5rem 0 5.5rem;
+  background: linear-gradient(180deg, #F8FAFC 0%, #EDF7FD 100%);
+}
+
+.diabetes-timeline-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.25rem;
+  margin-top: 3.5rem;
+}
+
+.diabetes-timeline-card {
+  background: #FFFFFF;
+  border-radius: 20px;
+  padding: 2rem 1.25rem;
+  border: 1px solid rgba(2, 132, 199, 0.15);
+  box-shadow: 0 10px 24px rgba(6, 21, 39, 0.04);
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.diabetes-timeline-card:hover {
+  transform: translateY(-5px);
+  border-color: #0284C7;
+  box-shadow: 0 16px 36px rgba(2, 132, 199, 0.12);
+}
+
+.journey-step-number {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #0284C7;
+  color: #FFFFFF;
+  font-weight: 800;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.25rem auto;
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
+}
+
+.journey-step-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #061527;
+  margin-bottom: 0.6rem;
+}
+
+.journey-step-desc {
+  font-size: 0.85rem;
+  color: #64748B;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ============================================================
+   5. COMPLETE DIABETES CARE, FOCUSED ON YOU
+   ============================================================ */
+.diabetes-pillars-section {
+  padding: 5rem 0;
+  background-color: #FFFFFF;
+}
+
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.pillar-card {
+  background: #FAFBFD;
+  border: 1px solid #E2E8F0;
+  border-radius: 20px;
+  padding: 2.25rem 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.pillar-card:hover {
+  transform: translateY(-4px);
+  border-color: #0284C7;
+  box-shadow: 0 14px 32px rgba(6, 21, 39, 0.06);
+  background: #FFFFFF;
+}
+
+.pillar-icon-box {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: rgba(6, 21, 39, 0.06);
+  color: #061527;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.pillar-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #061527;
+  margin-bottom: 0.75rem;
+}
+
+.pillar-desc {
+  font-size: 0.9rem;
+  color: #64748B;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ============================================================
+   6. OUR DIABETES CARE SERVICES
+   ============================================================ */
+.diabetes-services-section {
+  padding: 5rem 0 5.5rem;
+  background-color: #F8FAFC;
+  border-top: 1px solid rgba(6, 21, 39, 0.06);
+  border-bottom: 1px solid rgba(6, 21, 39, 0.06);
+}
+
+.diabetes-services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.75rem;
+}
+
+.diabetes-service-card {
+  background: #FFFFFF;
+  border-radius: 22px;
+  padding: 2.25rem;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 8px 24px rgba(6, 21, 39, 0.04);
+  transition: all 0.3s ease;
+}
+
+.diabetes-service-card:hover {
+  transform: translateY(-4px);
+  border-color: #0284C7;
+  box-shadow: 0 16px 36px rgba(2, 132, 199, 0.1);
+}
+
+.diabetes-service-badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #0284C7;
+  background: rgba(2, 132, 199, 0.08);
+  padding: 0.25rem 0.75rem;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+
+.diabetes-service-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #061527;
+  margin-bottom: 0.65rem;
+}
+
+.diabetes-service-desc {
+  font-size: 0.925rem;
+  color: #64748B;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.diabetes-service-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  border-top: 1px solid #F1F5F9;
+  padding-top: 1.25rem;
+}
+
+.btn-diabetes-learn-more {
+  background: none;
+  border: none;
+  color: #0284C7;
+  font-weight: 700;
+  font-size: 0.875rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  cursor: pointer;
+  padding: 0;
+  transition: gap 0.2s ease;
+}
+
+.btn-diabetes-learn-more:hover {
+  gap: 0.65rem;
+  color: #061527;
+}
+
+.btn-diabetes-book-small {
+  background-color: #061527;
+  color: #FFFFFF;
+  padding: 0.5rem 1.15rem;
+  border-radius: 999px;
+  font-size: 0.825rem;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-diabetes-book-small:hover {
+  background-color: #0284C7;
+}
+
+/* ============================================================
+   7. CARE BEYOND THE SUGAR READING
+   ============================================================ */
+.diabetes-beyond-section {
+  padding: 5rem 0;
+  background-color: #FFFFFF;
+}
+
+.beyond-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.beyond-card {
+  background: linear-gradient(145deg, #FAFBFD 0%, #F1F5F9 100%);
+  border: 1px solid #E2E8F0;
+  border-radius: 20px;
+  padding: 2.25rem 1.5rem;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.beyond-card:hover {
+  transform: translateY(-4px);
+  border-color: #0284C7;
+  box-shadow: 0 12px 28px rgba(6, 21, 39, 0.08);
+}
+
+.beyond-number-badge {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: rgba(2, 132, 199, 0.25);
+  margin-bottom: 0.5rem;
+}
+
+.beyond-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #061527;
+  margin-bottom: 0.6rem;
+}
+
+.beyond-desc {
+  font-size: 0.875rem;
+  color: #64748B;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ============================================================
+   8. SPECIALISED GESTATIONAL DIABETES CARE (Split Layout)
+   ============================================================ */
+.diabetes-gestational-banner-section {
+  padding: 5rem 0;
+  background: linear-gradient(135deg, #061527 0%, #0F2942 100%);
+  color: #FFFFFF;
+}
+
+.gestational-banner-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+.gestational-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #38BDF8;
+  background: rgba(56, 189, 248, 0.12);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  padding: 0.4rem 1.1rem;
+  border-radius: 999px;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+}
+
+.gestational-title {
+  font-family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+  font-size: clamp(2.2rem, 3.5vw, 3rem);
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1.15;
+  margin-bottom: 1.25rem;
+}
+
+.gestational-desc {
+  font-size: 1.025rem;
+  color: #94A3B8;
+  line-height: 1.7;
+  margin-bottom: 2.25rem;
+}
+
+.gestational-img-wrap {
+  width: 100%;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.gestational-banner-img {
+  width: 100%;
+  height: 380px;
   object-fit: cover;
   display: block;
 }
 
-.diabetes-floating-card {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-  right: 20px;
-  background: rgba(255, 255, 255, 0.94);
-  backdrop-filter: blur(12px);
-  padding: 12px 18px;
-  border-radius: var(--radius-md);
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.9);
+/* ============================================================
+   9. FINAL CTA SECTION
+   ============================================================ */
+.diabetes-final-cta-section {
+  padding: 5.5rem 0;
+  background: linear-gradient(180deg, #EBF8FF 0%, #FAFBFD 100%);
+  border-top: 1px solid rgba(2, 132, 199, 0.15);
 }
 
-.diabetes-badge-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: var(--radius-sm);
-  background: linear-gradient(135deg, #0A1E36 0%, #16365C 100%);
-  color: #2DD4BF;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.diabetes-floating-card strong {
-  display: block;
-  font-size: 0.88rem;
-  color: var(--color-primary-navy);
-}
-
-.diabetes-floating-card span {
-  display: block;
-  font-size: 0.74rem;
-  color: var(--color-text-muted);
-}
-
-/* ── 2. PROGRAMS SECTION ─────────────────── */
-.diabetes-programs-section {
-  padding: 80px 0;
-  background: #FFFFFF;
-  border-bottom: 1px solid rgba(226, 232, 240, 0.7);
-}
-
-.diabetes-programs-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
-}
-
-.diabetes-prog-card {
-  background: var(--bg-page);
-  border: 1px solid #E2E8F0;
-  border-radius: var(--radius-xl);
-  padding: 36px 28px;
-  display: flex;
-  flex-direction: column;
-  transition: all var(--transition-smooth);
-}
-
-.diabetes-prog-card:hover {
-  transform: translateY(-6px);
-  background: #FFFFFF;
-  border-color: var(--color-clinical-teal);
-  box-shadow: 0 16px 36px rgba(13, 148, 136, 0.12);
-}
-
-.prog-timing-pill {
-  display: inline-block;
-  font-size: 0.72rem;
+.final-cta-title {
+  font-family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+  font-size: clamp(2.2rem, 3.8vw, 3.2rem);
   font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--color-dark-teal);
-  background: #E6F7F6;
-  padding: 4px 12px;
-  border-radius: var(--radius-full);
-  margin-bottom: 16px;
-  align-self: flex-start;
+  color: #061527;
+  margin-bottom: 1rem;
 }
 
-.prog-title {
-  font-family: var(--font-serif);
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: var(--color-primary-navy);
-  margin-bottom: 12px;
-  line-height: 1.25;
-}
-
-.prog-desc {
-  font-size: 0.92rem;
+.final-cta-desc {
+  font-size: 1.075rem;
+  color: #64748B;
+  max-width: 640px;
+  margin: 0 auto 2.25rem auto;
   line-height: 1.6;
-  color: var(--color-text-muted);
-  margin-bottom: 22px;
 }
 
-.prog-points-list {
+.final-cta-actions {
   display: flex;
-  flex-direction: column;
-  gap: 12px;
-  margin-bottom: 28px;
-  flex-grow: 1;
-}
-
-.prog-point-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  font-size: 0.88rem;
-  color: var(--color-text-secondary);
-  line-height: 1.45;
-}
-
-.prog-check-icon {
-  color: var(--color-clinical-teal);
-  flex-shrink: 0;
-  margin-top: 2px;
-}
-
-.prog-footer {
-  margin-top: auto;
-  padding-top: 18px;
-  border-top: 1px solid #E2E8F0;
-}
-
-.prog-link-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 0.86rem;
-  font-weight: 700;
-  color: var(--color-clinical-teal);
-  transition: transform var(--transition-fast);
-}
-
-.prog-link-btn:hover {
-  transform: translateX(4px);
-  color: var(--color-dark-teal);
-}
-
-/* ── 3. GESTATIONAL DIABETES DUAL CARD ───── */
-.gdm-dual-section {
-  padding: 80px 0;
-  background: var(--bg-page);
-}
-
-.gdm-dual-card {
-  background: linear-gradient(135deg, #0A1E36 0%, #0F3554 100%);
-  color: #FFFFFF;
-  border-radius: var(--radius-xl);
-  padding: 48px;
-  display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  gap: 44px;
-  align-items: center;
-  box-shadow: 0 16px 40px rgba(10, 30, 54, 0.16);
-}
-
-.gdm-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(255, 255, 255, 0.15);
-  padding: 4px 14px;
-  border-radius: var(--radius-full);
-  font-size: 0.76rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: #2DD4BF;
-  margin-bottom: 16px;
-}
-
-.gdm-dual-left h2 {
-  font-family: var(--font-serif);
-  font-size: clamp(1.8rem, 2.8vw, 2.3rem);
-  font-weight: 700;
-  line-height: 1.25;
-  margin-bottom: 16px;
-}
-
-.gdm-dual-left p {
-  font-size: 1rem;
-  line-height: 1.65;
-  color: rgba(255, 255, 255, 0.88);
-  margin-bottom: 14px;
-}
-
-.gdm-sub {
-  font-size: 0.92rem !important;
-  color: rgba(255, 255, 255, 0.72) !important;
-  margin-bottom: 26px !important;
-}
-
-.gdm-highlights-box {
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: var(--radius-lg);
-  padding: 28px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.gdm-h-item .gdm-num {
-  display: block;
-  font-family: var(--font-serif);
-  font-size: 1.35rem;
-  font-weight: 700;
-  color: #2DD4BF;
-  margin-bottom: 2px;
-}
-
-.gdm-h-item strong {
-  display: block;
-  font-size: 0.92rem;
-  color: #FFFFFF;
-}
-
-.gdm-h-item p {
-  font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.7);
-  line-height: 1.4;
-  margin: 0;
-}
-
-/* ── 4. DOCTOR PROFILE SPOTLIGHT ─────────── */
-.diabetes-doctor-spotlight {
-  padding: 80px 0 20px;
-}
-
-.diabetes-doc-card {
-  background: #FFFFFF;
-  border-radius: var(--radius-xl);
-  padding: 40px;
-  border: 1px solid #E2E8F0;
-  box-shadow: 0 10px 30px rgba(6, 21, 39, 0.06);
-  display: grid;
-  grid-template-columns: 220px 1fr;
-  gap: 36px;
-  align-items: center;
-}
-
-.diabetes-lead-insignia {
-  width: 100%;
-  height: 220px;
-  border-radius: var(--radius-xl);
-  background: linear-gradient(135deg, #061527 0%, #0A1E36 50%, #16365C 100%);
-  color: #2DD4BF;
-  display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 12px;
-  box-shadow: 0 12px 32px rgba(6, 21, 39, 0.35);
+  gap: 1.1rem;
+  flex-wrap: wrap;
 }
 
-.insignia-pill {
-  font-size: 0.74rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  background: rgba(45, 212, 191, 0.15);
-  color: #2DD4BF;
-  border: 1px solid rgba(45, 212, 191, 0.3);
-  padding: 4px 12px;
-  border-radius: var(--radius-full);
+/* Modal helper overrides */
+.btn-full-width {
+  width: 100%;
+  justify-content: center;
 }
 
-.doc-kicker {
-  font-size: 0.76rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--color-clinical-teal);
+/* ============================================================
+   RESPONSIVE DESIGN BREAKPOINTS
+   ============================================================ */
+@media (max-width: 1100px) {
+  .care-areas-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .diabetes-timeline-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
-.doc-h-name {
-  font-family: var(--font-serif);
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: var(--color-primary-navy);
-  margin: 4px 0;
-}
-
-.doc-h-qual {
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: #D4AF37;
-  margin-bottom: 14px;
-}
-
-.doc-h-bio {
-  font-size: 0.98rem;
-  line-height: 1.68;
-  color: var(--color-text-secondary);
-  font-style: italic;
-  margin-bottom: 18px;
-}
-
-.doc-schedule-strip {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.84rem;
-  color: var(--color-text-muted);
-  background: var(--bg-page);
-  padding: 8px 14px;
-  border-radius: var(--radius-md);
-  margin-bottom: 22px;
-}
-
-@media (max-width: 980px) {
-  .diabetes-hero-grid,
-  .diabetes-programs-grid,
-  .gdm-dual-card,
-  .diabetes-doc-card {
+@media (max-width: 991px) {
+  .gestational-banner-container {
     grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .gestational-banner-img {
+    height: 300px;
+  }
+  .pillars-grid,
+  .beyond-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .diabetes-services-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .care-areas-grid,
+  .diabetes-timeline-grid,
+  .pillars-grid,
+  .beyond-grid {
+    grid-template-columns: 1fr;
+  }
+  .diabetes-hero-section {
+    padding: 3.5rem 0 2.5rem;
+  }
+  .diabetes-hero-actions,
+  .final-cta-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+  .btn-diabetes-primary,
+  .btn-diabetes-outline {
+    width: 100%;
+    justify-content: center;
   }
 }

@@ -6,10 +6,7 @@ import {
   ArrowRight,
   Activity, 
   Calendar,
-  Phone,
-  Clock,
-  MapPin,
-  MessageCircle
+  Phone
 } from 'lucide-react';
 import { siteConfig } from '../data/siteData';
 import './Navbar.css';
@@ -39,69 +36,30 @@ export default function Navbar() {
   return (
     <header className={`ref-header-fixed ${isScrolled ? 'scrolled' : ''}`}>
       
-      {/* ── Top Utility Bar ── */}
-      <div className="navbar-top-announcement">
-        <div className="container nav-top-flex">
-          <div className="nav-top-left">
-            <span className="nav-top-item">
-              <MapPin size={13} className="nav-top-icon" />
-              <span>Sai Nagar, Anantapur</span>
-            </span>
-            <span className="nav-top-divider">•</span>
-            <span className="nav-top-item">
-              <Clock size={13} className="nav-top-icon" />
-              <span>Mon–Sat: 9 AM – 8 PM</span>
-            </span>
-            <span className="nav-top-pill-badge">
-              <span className="pulse-dot"></span>
-              <span>Open Today</span>
-            </span>
-          </div>
-
-          <div className="nav-top-right">
-            <a href={`tel:${siteConfig.contact.phoneDeskRaw}`} className="nav-top-link">
-              <Phone size={13} />
-              <span>Helpdesk: <strong>{siteConfig.contact.phoneDesk}</strong></span>
-            </a>
-            <a 
-              href={siteConfig.contact.whatsappUrl} 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="nav-top-whatsapp"
-            >
-              <MessageCircle size={13} />
-              <span>WhatsApp</span>
-            </a>
-          </div>
-        </div>
-      </div>
-
       {/* ── Main Navigation Bar ── */}
       <div className="ref-navbar-main">
         <div className="container nav-container">
           
           {/* Dual Brand Identity with Official Logo */}
-          <Link to="/" className="ref-brand-group" aria-label="Vasundhara Diagnostics & Sai Kiran Diabetic Clinic">
-            <div className="brand-logo-left">
+          <Link to="/" className="ref-brand-group" aria-label="Vasundhara Diagnostics &amp; Sai Kiran Diabetic Clinic">
+            <div className="brand-primary-vasundhara">
               <img 
                 src="/images/vasundhara_logo.png" 
-                alt="Vasundhara Diagnostics & Fetal Medicine Logo" 
+                alt="Vasundhara Diagnostics &amp; Fetal Medicine Logo" 
                 className="ref-brand-logo-img"
               />
               <div className="brand-titles">
                 <span className="brand-name-vasundhara">VASUNDHARA</span>
-                <span className="brand-sub-vasundhara">Diagnostics &amp; Fetal Medicine</span>
+                <span className="brand-sub-vasundhara">Diagnostics &amp; Fetal Medicine Centre</span>
               </div>
             </div>
 
             <div className="brand-divider-pipe"></div>
 
-            <div className="brand-logo-right">
-              <div className="brand-logo-symbol-dm" title="Sai Kiran Diabetic Clinic">
-                <Activity size={18} />
-              </div>
+            <div className="brand-secondary-saikiran">
+              <Activity size={14} className="sk-minimal-icon" />
               <div className="brand-titles">
-                <span className="brand-name-saikiran">Sai Kiran</span>
+                <span className="brand-name-saikiran">SAI KIRAN</span>
                 <span className="brand-sub-saikiran">Diabetic Clinic</span>
               </div>
             </div>

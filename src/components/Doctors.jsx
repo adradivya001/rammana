@@ -1,118 +1,97 @@
 import React from 'react';
-import { UserCheck, Stethoscope, Sparkles } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { UserCheck, Stethoscope, ArrowRight, ShieldCheck, Award, Star } from 'lucide-react';
 import './Doctors.css';
 
-export default function Doctors({ onOpenBooking, data }) {
-  const defaultData = {
-    eyebrow: "OUR MEDICAL TEAM",
-    heading: "Expertise You Can Trust",
-    subheading: "Experienced medical care across fetal medicine, radiology, general medicine and diabetes care.",
-    doctorsList: [
-      {
-        id: "vasundhara",
-        name: "Dr. N. Vasundhara",
-        signage: "Vasundhara Diagnostics & Fetal Medicine",
-        icon: "UserCheck",
-        theme: "teal",
-        credentials: [
-          { text: "MBBS, MD Radiology", type: "primary" },
-          { text: "Fellow in Fetal Medicine", type: "highlight" }
-        ],
-        desc: "Specialized in radiology and fetal medicine, with a focus on diagnostic imaging and pregnancy-related fetal assessment.",
-        tags: ["Radiology", "Fetal Medicine", "Diagnostic Imaging"],
-        actionLabel: "Book Consultation",
-        actionService: "Fetal Medicine Assessment"
-      },
-      {
-        id: "saikiran",
-        name: "Dr. V. Sai Kiran Reddy",
-        signage: "General Medicine & Diabetes Specialist",
-        icon: "Stethoscope",
-        theme: "navy",
-        credentials: [
-          { text: "MBBS, DNB (General Medicine)", type: "primary" },
-          { text: "DFID (Fellowship in Diabetes)", type: "highlight-navy" },
-          { text: "Ex-Registrar, CMC Vellore", type: "sub" }
-        ],
-        desc: "General medicine physician with specialized fellowship training in diabetes care and management.",
-        tags: ["General Medicine", "Diabetes Care"],
-        actionLabel: "Book Consultation",
-        actionService: "General Medicine Consultation"
-      }
-    ]
-  };
-
-  const content = data || defaultData;
-
-  const getIcon = (iconName) => {
-    if (iconName === "Stethoscope") return <Stethoscope size={32} />;
-    return <UserCheck size={32} />;
-  };
-
+export default function Doctors() {
   return (
-    <section id="doctors" className="doctors-section section-padding">
+    <section id="doctors" className="doctors-editorial-section">
       <div className="container">
-        {/* Section Header */}
-        <div className="doctors-header">
-          <div className="eyebrow">
-            <Sparkles size={14} /> {content.eyebrow}
-          </div>
-          <h2 className="section-heading">{content.heading}</h2>
-          <p className="section-subheading">
-            {content.subheading}
+        
+        {/* SECTION HEADER */}
+        <div className="doctors-header text-center">
+          <span className="section-eyebrow-pill">OUR MEDICAL TEAM</span>
+          <h2 className="section-title-serif">Meet Your Care Team</h2>
+          <p className="section-subtitle-sans">
+            Dedicated medical specialists committed to compassionate, evidence-based care.
           </p>
         </div>
 
-        {/* Doctors Grid */}
-        <div className="doctors-grid">
-          {content.doctorsList.map((doc) => (
-            <div className="doctor-card" key={doc.id}>
-              {/* Top Signage / Portrait Display */}
-              <div className={`doctor-visual-header header-${doc.theme}`}>
-                <div className={`doctor-icon-avatar avatar-${doc.theme}`}>
-                  {getIcon(doc.icon)}
-                </div>
-                <div className={`doctor-signage-tag ${doc.theme === 'navy' ? 'tag-navy' : ''}`}>
-                  <span>{doc.signage}</span>
-                </div>
+        {/* DOCTORS HIERARCHY SHOWCASE GRID */}
+        <div className="doctors-hierarchy-grid">
+          
+          {/* PRIMARY FEATURED DOCTOR CARD: DR. N. VASUNDHARA */}
+          <div className="doctor-card-editorial doctor-featured-primary">
+            <div className="doc-primary-header">
+              <div className="doc-portrait-avatar avatar-primary">
+                <UserCheck size={32} />
               </div>
-
-              <div className="doctor-card-content">
-                {/* Doctor Name */}
-                <h3 className="doctor-name">{doc.name}</h3>
-
-                {/* Credentials */}
-                <div className="doctor-credentials">
-                  {doc.credentials.map((cred, i) => (
-                    <span key={i} className={`cred-badge cred-${cred.type}`}>{cred.text}</span>
-                  ))}
-                </div>
-
-                {/* Short Context Description */}
-                <p className="doctor-context-desc">
-                  {doc.desc}
-                </p>
-
-                {/* Specialization Tags */}
-                <div className="doctor-tags-row">
-                  {doc.tags.map((tag, i) => (
-                    <span key={i} className={`spec-tag tag-${doc.theme}`}>{tag}</span>
-                  ))}
-                </div>
-
-                {/* Card Footer Action */}
-                <div className="doctor-action-footer">
-                  <button 
-                    onClick={() => onOpenBooking && onOpenBooking(doc.actionService)} 
-                    className={`btn-doctor-action btn-action-${doc.theme}`}
-                  >
-                    {doc.actionLabel}
-                  </button>
-                </div>
+              <div className="doc-badge-pill badge-primary">
+                <Award size={14} />
+                <span>LEAD FETAL SPECIALIST</span>
               </div>
             </div>
-          ))}
+
+            <div className="doc-body-content">
+              <h3 className="doc-name">Dr. N. Vasundhara</h3>
+              <div className="doc-division-tag">Fetal Medicine &amp; Diagnostics</div>
+              
+              <div className="doc-credentials-badges">
+                <span>MBBS</span>
+                <span>MD (Radiology)</span>
+                <span className="highlight-tag">Fellow in Fetal Medicine</span>
+              </div>
+
+              <p className="doc-bio-lead">
+                Consultant Radiologist with specialized fellowship training in fetal medicine. Dedicated to high-precision 3D/4D ultrasound imaging, prenatal anomaly screening, and detailed fetal surveillance.
+              </p>
+
+              <div className="doc-footer-action">
+                <Link to="/doctors" className="btn-primary-navy">
+                  <span>View Profile</span>
+                  <ArrowRight size={16} />
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          {/* SECONDARY DOCTOR CARD: DR. V. SAI KIRAN REDDY */}
+          <div className="doctor-card-editorial doctor-secondary">
+            <div className="doc-primary-header">
+              <div className="doc-portrait-avatar avatar-secondary">
+                <Stethoscope size={30} />
+              </div>
+              <div className="doc-badge-pill badge-secondary">
+                <span>DIABETOLOGY SPECIALIST</span>
+              </div>
+            </div>
+
+            <div className="doc-body-content">
+              <h3 className="doc-name">Dr. V. Sai Kiran Reddy</h3>
+              <div className="doc-division-tag">Diabetes &amp; Metabolic Care</div>
+              
+              <div className="doc-credentials-badges">
+                <span>MBBS</span>
+                <span>DNB (General Medicine)</span>
+                <span className="highlight-navy">DFID (Diabetes)</span>
+                <span>Ex-Registrar CMC Vellore</span>
+              </div>
+
+              <p className="doc-bio-lead">
+                Consultant Physician &amp; Diabetes Specialist bringing extensive clinical expertise from CMC Vellore for structured glycemic profiling, gestational diabetes tracking, and organ protection.
+              </p>
+
+              <div className="doc-footer-action">
+                <Link to="/doctors" className="btn-secondary-outline">
+                  <span>View Profile</span>
+                  <ArrowRight size={16} />
+                </Link>
+              </div>
+            </div>
+          </div>
+
         </div>
+
       </div>
     </section>
   );

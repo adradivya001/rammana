@@ -1,85 +1,104 @@
 import React from 'react';
-import { MessageSquare, Star, User } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Star, Quote, ArrowRight, CheckCircle2 } from 'lucide-react';
 import './WhyVasundharaReviews.css';
 
-const DEFAULT_REVIEWS_DATA = {
-  eyebrow: "PATIENT EXPERIENCES",
-  heading: "What Our Patients Say",
-  subheading: "Real experiences from patients who have visited our facility in Sai Nagar, Anantapur.",
-  reviewsTitle: "Patient Feedback",
-  badgeText: "Google Reviews Indicator",
-  reviews: [
-    {
-      name: "Lalitha M.",
-      tag: "Fetal Ultrasound Scan",
-      date: "Verified Visit",
-      comment: "Very polite staff and clear diagnostic imaging experience. Dr. Vasundhara explained the scan process comfortably."
-    },
-    {
-      name: "Rajesh & Swathi K.",
-      tag: "Pregnancy Monitoring",
-      date: "Verified Visit",
-      comment: "Pristine clinical environment in Sai Nagar. Prompt appointment management and professional fetal assessment."
-    },
-    {
-      name: "Sowmya P.",
-      tag: "Diagnostic Care",
-      date: "Verified Visit",
-      comment: "Very clean diagnostic centre with patient-focused attention. Reliable reporting and easy location accessibility."
-    }
-  ]
+const FEATURED_REVIEW = {
+  quote: "Dr. Vasundhara is remarkably gentle and explained every detail of our 20-week anomaly scan on the screen. The clinic environment is exceptionally clean and peaceful. We felt completely reassured throughout the scan.",
+  patient: "Lakshmi P.",
+  tag: "Targeted Anomaly Scan (TIFFA)",
+  rating: 5,
+  location: "Anantapur"
 };
 
-export default function WhyVasundharaReviews({ data }) {
-  const content = data || DEFAULT_REVIEWS_DATA;
+const SUPPORTING_REVIEWS = [
+  {
+    quote: "Dr. Sai Kiran Reddy explained my blood sugar readings with immense patience. His structured diet guidance and medication review helped stabilize my numbers.",
+    patient: "Ramesh K.",
+    tag: "Diabetes Consultation & HbA1c",
+    rating: 5
+  },
+  {
+    quote: "We travelled for the NT scan and fetal doppler. The clarity of images and calm consultation gave us complete confidence.",
+    patient: "Sowmya G.",
+    tag: "NT Scan & Fetal Doppler",
+    rating: 5
+  }
+];
 
+export default function WhyVasundharaReviews() {
   return (
-    <section id="reviews" className="why-reviews-section section-padding">
+    <section id="reviews" className="patient-experience-section">
       <div className="container">
-        {/* Reviews Section Header */}
-        <div className="reviews-header-block">
-          <div className="eyebrow">{content.eyebrow}</div>
-          <h2 className="section-heading">{content.heading}</h2>
-          <p className="section-subheading">
-            {content.subheading}
+        
+        {/* SECTION HEADER */}
+        <div className="reviews-header text-center">
+          <span className="section-eyebrow-pill">PATIENT EXPERIENCES</span>
+          <h2 className="section-title-serif">What Our Patients Say</h2>
+          <p className="section-subtitle-sans">
+            Real experiences from patients who visited our centre.
           </p>
         </div>
 
-        {/* Reviews Grid */}
-        <div className="reviews-wrapper">
-          <div className="reviews-top-bar">
-            <div className="reviews-title-wrap">
-              <MessageSquare size={20} className="reviews-header-icon" />
-              <h3 className="reviews-heading">{content.reviewsTitle}</h3>
+        {/* EDITORIAL TESTIMONIAL SHOWCASE (MAIN FEATURED + 2 SUPPORTING) */}
+        <div className="testimonial-editorial-grid">
+          
+          {/* MAIN FEATURED QUOTE CARD */}
+          <div className="testimonial-featured-card">
+            <div className="quote-icon-wrap">
+              <Quote size={32} />
             </div>
-            <div className="google-review-badge">
-              <span className="google-g">G</span>
-              <span className="badge-text">{content.badgeText}</span>
+
+            <div className="star-rating-row">
+              {[...Array(FEATURED_REVIEW.rating)].map((_, i) => (
+                <Star key={i} size={18} className="star-gold" />
+              ))}
+              <span className="rating-num-label">5.0 Star Verified Visit</span>
+            </div>
+
+            <p className="featured-quote-text">
+              "{FEATURED_REVIEW.quote}"
+            </p>
+
+            <div className="featured-patient-info">
+              <div>
+                <h3 className="patient-name-title">{FEATURED_REVIEW.patient}</h3>
+                <span className="patient-tag-sub">{FEATURED_REVIEW.tag} • {FEATURED_REVIEW.location}</span>
+              </div>
+              <div className="verified-badge-chip">
+                <CheckCircle2 size={15} />
+                <span>Verified Patient</span>
+              </div>
             </div>
           </div>
 
-          <div className="reviews-grid">
-            {content.reviews.map((rev, idx) => (
-              <div key={idx} className="review-card">
-                <div className="review-rating">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} size={15} className="star-filled" />
+          {/* SUPPORTING TESTIMONIALS COLUMN */}
+          <div className="supporting-reviews-column">
+            {SUPPORTING_REVIEWS.map((rev, idx) => (
+              <div key={idx} className="supporting-review-card">
+                <div className="star-rating-mini">
+                  {[...Array(rev.rating)].map((_, i) => (
+                    <Star key={i} size={14} className="star-gold" />
                   ))}
                 </div>
-                <p className="review-comment">"{rev.comment}"</p>
-                <div className="review-meta">
-                  <div className="avatar-circle">
-                    {rev.name ? rev.name.charAt(0) : <User size={14} />}
-                  </div>
-                  <div className="meta-text">
-                    <span className="patient-name">{rev.name}</span>
-                    <span className="patient-tag">{rev.tag} • {rev.date}</span>
-                  </div>
+                <p className="supporting-quote-text">"{rev.quote}"</p>
+                <div className="supporting-meta">
+                  <span className="sup-patient-name">{rev.patient}</span>
+                  <span className="sup-patient-tag">{rev.tag}</span>
                 </div>
               </div>
             ))}
           </div>
+
         </div>
+
+        <div className="text-center" style={{ marginTop: '2.75rem' }}>
+          <Link to="/reviews" className="btn-primary-navy">
+            <span>View All Reviews</span>
+            <ArrowRight size={16} />
+          </Link>
+        </div>
+
       </div>
     </section>
   );

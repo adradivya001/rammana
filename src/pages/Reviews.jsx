@@ -27,8 +27,8 @@ export default function Reviews() {
       {/* ── HERO ────────────────────────────────────────── */}
       <section className="reviews-hero-section text-center">
         <div className="container">
-          <div className="eyebrow hero-animate-sub">
-            <Star size={14} /> PATIENT EXPERIENCES
+          <div className="section-eyebrow-pill hero-animate-sub">
+            <Star size={14} style={{ display: 'inline', marginRight: '5px', verticalAlign: '-1px' }} /> PATIENT EXPERIENCES
           </div>
           <h1 className="reviews-hero-title hero-animate-title">What Our Patients Say</h1>
           <p className="reviews-hero-subtitle mx-auto hero-animate-sub">
@@ -122,7 +122,8 @@ export default function Reviews() {
               href={siteConfig.contact.googleMapsLink} 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="btn btn-teal hero-btn-pulse link-arrow-anim"
+              className="btn-primary-navy"
+              style={{ backgroundColor: 'var(--color-clinical-teal)' }}
             >
               <span>Leave a Review</span>
               <ExternalLink size={16} />

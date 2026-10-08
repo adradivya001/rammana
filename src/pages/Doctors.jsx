@@ -77,9 +77,8 @@ export default function Doctors() {
       {/* ── HERO ────────────────────────────────────────── */}
       <section className="doctors-hero-section text-center">
         <div className="container">
-          <div className="hero-trust-badge mx-auto">
-            <Sparkles size={14} className="hero-sparkle-icon" />
-            <span>Dedicated Clinical Leadership</span>
+          <div className="section-eyebrow-pill mx-auto">
+            <Sparkles size={14} style={{ display: 'inline', marginRight: '5px', verticalAlign: '-1px' }} /> DEDICATED CLINICAL LEADERSHIP
           </div>
           <h1 className="doctors-hero-title">Medical Specialists &amp; Leadership</h1>
           <p className="doctors-hero-subtitle">
@@ -150,7 +149,7 @@ export default function Doctors() {
                         <Clock size={16} className="clock-icon" />
                         <span>Schedule: <strong>{doc.schedule}</strong></span>
                       </div>
-                      <Link to={doc.bookingRoute} className="ref-btn-teal full-width">
+                      <Link to={doc.bookingRoute} className="btn-primary-navy full-width" style={{ justifyContent: 'center' }}>
                         <Calendar size={16} />
                         <span>Book Appointment with {doc.name.split(' ')[1] || doc.name}</span>
                         <ArrowRight size={15} />

@@ -1,72 +1,47 @@
-/* ==========================================
+/* ============================================================
    VASUNDHARA DIAGNOSTICS & FETAL MEDICINE CENTRE
-   with SAI KIRAN DIABETIC CLINIC
-   Master Ultra-Luxury Healthcare Design System
-   ========================================== */
+   Master Global Design System
+   ============================================================ */
 
 :root {
-  /* Master Color System */
-  --color-primary-navy: #061527;   /* Ultra Deep Midnight Navy */
-  --color-navy-dark: #030B14;      /* Obsidian Navy */
-  --color-navy-card: #0A1E36;     /* Slate Navy */
-  --color-clinical-teal: #0D9488;  /* Vibrant Clinical Teal */
-  --color-dark-teal: #0F766E;      /* Rich Teal */
-  --color-cyan-vibrant: #06B6D4;   /* Electric Cyan */
-  --color-cyan-glow: rgba(6, 182, 212, 0.35);
-  --color-teal-glow: rgba(13, 148, 136, 0.3);
-  --color-soft-aqua: #E0F7F6;      /* Soft Aqua */
-  
-  --color-warm-ivory: #FAF7F2;     /* Warm Ivory */
-  --color-soft-peach: #FBF0E8;     /* Soft Warm Peach */
-  --color-gold-accent: #D4AF37;    /* Luxury Gold */
-  --color-gold-light: #FEF9EE;
-  --color-gold-glow: rgba(212, 175, 55, 0.28);
+  /* 1. GLOBAL COLOR SYSTEM */
+  --bg-page: #FBF8F3;               /* Primary Background: Warm Ivory / Cream */
+  --bg-surface: #FFFFFF;            /* Surface Card Background */
+  --bg-warm-peach: #F9E8E1;          /* Secondary Warm Background: Soft Blush / Peach */
+  --color-primary-navy: #071A2F;     /* Primary Text & CTA: Deep Navy */
+  --color-secondary-navy: #30445A;   /* Secondary Text: Muted Navy */
+  --color-clinical-teal: #079C94;    /* Primary Accent: Clinical Teal */
+  --color-soft-teal: #DDF3EF;        /* Secondary Accent: Soft Teal */
+  --color-fetal-peach: #F4C7B9;      /* Fetal Medicine Accent: Soft Peach */
+  --color-diabetes-blue: #CDECF5;    /* Diabetes Accent: Soft Clinical Blue */
   --color-white: #FFFFFF;
-  
-  /* Text System */
-  --color-text-primary: #0A192F;   /* Deep Slate */
-  --color-text-secondary: #334155; /* Slate 700 */
-  --color-text-muted: #64748B;     /* Slate 500 */
-  --color-text-light: #F8FAFC;
-  
-  /* Backgrounds & Glass */
-  --bg-page: #F8F6F0;
-  --bg-surface: #FFFFFF;
-  --bg-card: #FFFFFF;
-  --bg-card-glass: rgba(255, 255, 255, 0.88);
-  --bg-dark-glass: rgba(6, 21, 39, 0.88);
-  --border-subtle: #E2E8F0;
-  --border-glass: rgba(255, 255, 255, 0.8);
-  --border-teal-glow: rgba(13, 148, 136, 0.35);
-  
-  /* Multi-Layer Shadows & Glows */
-  --shadow-xs: 0 1px 3px rgba(6, 21, 39, 0.04);
-  --shadow-sm: 0 4px 14px rgba(6, 21, 39, 0.06);
-  --shadow-md: 0 12px 32px rgba(6, 21, 39, 0.08);
-  --shadow-lg: 0 24px 56px rgba(6, 21, 39, 0.12);
-  --shadow-glow-cyan: 0 8px 30px rgba(6, 182, 212, 0.3);
-  --shadow-glow-teal: 0 10px 32px rgba(13, 148, 136, 0.32);
-  --shadow-glow-gold: 0 8px 28px rgba(212, 175, 55, 0.28);
-  
-  /* Radius */
-  --radius-xs: 8px;
-  --radius-sm: 12px;
-  --radius-md: 18px;
-  --radius-lg: 24px;
-  --radius-xl: 32px;
+
+  /* Text Tokens */
+  --color-text-primary: #071A2F;
+  --color-text-secondary: #30445A;
+  --color-text-muted: #64748B;
+  --color-text-light: #FFFFFF;
+
+  /* Typography */
+  --font-serif: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Borders & Radius */
+  --border-subtle: rgba(7, 26, 47, 0.08);
+  --radius-card: 20px;
+  --radius-image: 24px;
   --radius-full: 9999px;
-  
-  /* Typography Tokens */
-  --font-serif: 'Playfair Display', Georgia, serif;
-  --font-sans: 'Outfit', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  
+
+  /* Shadows */
+  --shadow-subtle: 0 10px 30px rgba(7, 26, 47, 0.05);
+  --shadow-hover: 0 16px 40px rgba(7, 26, 47, 0.09);
+
   /* Transitions */
-  --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-smooth: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-  --transition-bounce: 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Reset */
+/* Reset & Base */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -92,8 +67,8 @@ body {
 }
 
 ::selection {
-  background-color: #0D9488;
-  color: #ffffff;
+  background-color: var(--color-clinical-teal);
+  color: #FFFFFF;
 }
 
 img, picture, video, svg {
@@ -131,233 +106,119 @@ a {
   }
 }
 
-/* Section Header Typography (Strict 5-level hierarchy) */
-.ref-section-header {
-  margin-bottom: 48px;
-  position: relative;
-}
+/* ============================================================
+   GLOBAL BUTTON & CTA STYLES (UNIFIED ACROSS ENTIRE WEBSITE)
+   ============================================================ */
 
-.ref-section-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.78rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  padding: 6px 18px;
-  border-radius: var(--radius-full);
-  background: linear-gradient(135deg, rgba(13, 148, 136, 0.12) 0%, rgba(6, 182, 212, 0.12) 100%);
-  color: var(--color-dark-teal);
-  margin-bottom: 14px;
-  border: 1px solid rgba(13, 148, 136, 0.22);
-  box-shadow: 0 2px 10px rgba(13, 148, 136, 0.06);
-}
-
-.ref-section-heading {
-  font-family: var(--font-serif);
-  font-size: clamp(2.2rem, 3.4vw, 3rem);
-  font-weight: 800;
-  color: var(--color-primary-navy);
-  letter-spacing: -0.025em;
-  line-height: 1.22;
-}
-
-.ref-section-sub {
-  font-size: 1.06rem;
-  color: var(--color-text-secondary);
-  margin-top: 12px;
-  font-weight: 400;
-  max-width: 680px;
-  margin-left: auto;
-  margin-right: auto;
-  line-height: 1.65;
-}
-
-/* ==========================================
-   3-TIER CTA HIERARCHY SYSTEM
-   ========================================== */
-
-/* Tier 1: PRIMARY (Filled teal/cyan button) */
+/* Primary CTA: Dark Navy Pill Button with White Text */
+.btn-primary-navy,
 .ref-btn-primary,
-.ref-btn-teal {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  background: linear-gradient(135deg, #0F766E 0%, #0D9488 50%, #06B6D4 100%);
-  color: var(--color-white) !important;
-  font-size: 0.98rem;
-  font-weight: 700;
-  padding: 14px 28px;
+.btn-fetal-primary,
+.btn-diabetes-primary,
+.btn-hero-primary-navy {
+  background-color: var(--color-primary-navy) !important;
+  color: #FFFFFF !important;
+  padding: 0.9rem 2rem;
   border-radius: var(--radius-full);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  cursor: pointer;
-  transition: all var(--transition-smooth);
-  box-shadow: 0 8px 24px rgba(13, 148, 136, 0.3);
-  text-decoration: none;
-  position: relative;
-  overflow: hidden;
-}
-
-.ref-btn-primary::after,
-.ref-btn-teal::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
-  transition: 0.5s;
-}
-
-.ref-btn-primary:hover::after,
-.ref-btn-teal:hover::after {
-  left: 100%;
-}
-
-.ref-btn-primary:hover,
-.ref-btn-teal:hover {
-  background: linear-gradient(135deg, #0D9488 0%, #06B6D4 100%);
-  transform: translateY(-2px);
-  box-shadow: 0 12px 30px rgba(13, 148, 136, 0.4);
-}
-
-.ref-btn-primary .btn-arrow-icon,
-.ref-btn-teal .btn-arrow-icon {
-  transition: transform var(--transition-fast);
-}
-
-.ref-btn-primary:hover .btn-arrow-icon,
-.ref-btn-teal:hover .btn-arrow-icon {
-  transform: translateX(4px);
-}
-
-/* Tier 2: SECONDARY (Clean outlined / white glass button) */
-.ref-btn-secondary,
-.ref-btn-outline {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  background-color: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(10px);
-  color: var(--color-primary-navy);
-  font-size: 0.96rem;
+  font-size: 0.95rem;
   font-weight: 700;
-  padding: 13px 26px;
-  border-radius: var(--radius-full);
-  border: 1.5px solid rgba(6, 21, 39, 0.16);
-  cursor: pointer;
-  transition: all var(--transition-smooth);
-  box-shadow: 0 4px 14px rgba(6, 21, 39, 0.04);
-}
-
-.ref-btn-secondary:hover,
-.ref-btn-outline:hover {
-  background-color: #FFFFFF;
-  border-color: var(--color-clinical-teal);
-  color: var(--color-dark-teal);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 22px rgba(13, 148, 136, 0.15);
-}
-
-/* Tier 3: TERTIARY (Clean text link with arrow) */
-.ref-btn-tertiary,
-.ref-btn-text {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 0.92rem;
-  font-weight: 700;
-  color: var(--color-dark-teal);
-  background: transparent;
   border: none;
   cursor: pointer;
-  padding: 4px 0;
-  transition: color var(--transition-fast);
-}
-
-.ref-btn-tertiary:hover,
-.ref-btn-text:hover {
-  color: var(--color-cyan-vibrant);
-}
-
-.ref-btn-tertiary svg,
-.ref-btn-text svg {
-  transition: transform var(--transition-fast);
-}
-
-.ref-btn-tertiary:hover svg,
-.ref-btn-text:hover svg {
-  transform: translateX(4px);
-}
-
-/* High-Contrast White Variants for Dark / Banner Sections */
-.ref-btn-white {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  gap: 10px;
-  background-color: #FFFFFF;
+  gap: 0.6rem;
+  box-shadow: 0 6px 20px rgba(7, 26, 47, 0.16);
+  transition: all var(--transition-smooth);
+  text-decoration: none;
+}
+
+.btn-primary-navy:hover,
+.ref-btn-primary:hover,
+.btn-fetal-primary:hover,
+.btn-diabetes-primary:hover,
+.btn-hero-primary-navy:hover {
+  background-color: var(--color-clinical-teal) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(7, 156, 148, 0.3);
+}
+
+/* Secondary CTA: Transparent/Warm Background with Thin Navy Border */
+.btn-secondary-outline,
+.ref-btn-secondary,
+.btn-fetal-outline,
+.btn-diabetes-outline,
+.btn-hero-secondary-outline {
+  background-color: transparent !important;
   color: var(--color-primary-navy) !important;
-  font-size: 0.98rem;
-  font-weight: 800;
-  padding: 14px 28px;
+  padding: 0.85rem 1.75rem;
   border-radius: var(--radius-full);
-  border: 1px solid rgba(255, 255, 255, 0.95);
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: 1.5px solid var(--color-primary-navy);
   cursor: pointer;
-  transition: all var(--transition-smooth);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-}
-
-.ref-btn-white:hover {
-  background-color: #F8FAFC;
-  transform: translateY(-2px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.28);
-  color: var(--color-dark-teal) !important;
-}
-
-.ref-btn-white-outline {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  gap: 10px;
-  background-color: rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(12px);
-  color: var(--color-white);
-  font-size: 0.96rem;
-  font-weight: 700;
-  padding: 13px 26px;
-  border-radius: var(--radius-full);
-  border: 1.5px solid rgba(255, 255, 255, 0.65);
-  cursor: pointer;
+  gap: 0.55rem;
+  text-decoration: none;
   transition: all var(--transition-smooth);
 }
 
-.ref-btn-white-outline:hover {
-  background-color: rgba(255, 255, 255, 0.22);
-  border-color: var(--color-white);
+.btn-secondary-outline:hover,
+.ref-btn-secondary:hover,
+.btn-fetal-outline:hover,
+.btn-diabetes-outline:hover,
+.btn-hero-secondary-outline:hover {
+  background-color: var(--color-primary-navy) !important;
+  color: #FFFFFF !important;
   transform: translateY(-2px);
-  color: var(--color-white);
 }
 
-/* Glass Panel Utilities */
-.glass-panel-luxury {
-  background: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.9);
-  border-radius: var(--radius-xl);
-  box-shadow: 0 12px 36px rgba(6, 21, 39, 0.06);
+/* Section Header Typography */
+.section-eyebrow-pill {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--color-clinical-teal);
+  background: var(--color-soft-teal);
+  border: 1px solid rgba(7, 156, 148, 0.2);
+  padding: 0.35rem 1rem;
+  border-radius: var(--radius-full);
+  margin-bottom: 0.85rem;
+  text-transform: uppercase;
+}
+
+.section-title-serif {
+  font-family: var(--font-serif);
+  font-size: clamp(2.2rem, 3.5vw, 3rem);
+  font-weight: 700;
+  color: var(--color-primary-navy);
+  line-height: 1.15;
+  margin-bottom: 0.75rem;
+}
+
+.section-subtitle-sans {
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  color: var(--color-secondary-navy);
+  max-width: 620px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Common Card Base */
+.global-card {
+  background-color: var(--bg-surface);
+  border-radius: var(--radius-card);
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-subtle);
   transition: all var(--transition-smooth);
 }
 
-.glass-panel-luxury:hover {
-  box-shadow: 0 18px 45px rgba(6, 21, 39, 0.1);
-  border-color: rgba(13, 148, 136, 0.35);
-  transform: translateY(-3px);
+.global-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--color-clinical-teal);
 }
 
 /* Utilities */

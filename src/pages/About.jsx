@@ -3,14 +3,10 @@ import { Link } from 'react-router-dom';
 import { 
   Heart, 
   Microscope, 
-  CheckCircle2, 
   ArrowRight, 
   Eye, 
   Ear,
-  HelpCircle,
-  Stethoscope,
   ShieldCheck,
-  Award,
   Sparkles,
   Calendar,
   Building2,
@@ -34,20 +30,20 @@ export default function About() {
               <Sparkles size={14} className="hero-sparkle-icon" />
               <span>Vasundhara Diagnostics &amp; Sai Kiran Diabetic Clinic</span>
             </div>
-            <h1 className="about-hero-title">
+            <h1 className="about-hero-title section-title-serif">
               Specialized Care.<br />
               <span>One Trusted Centre in Anantapur.</span>
             </h1>
             <p className="about-hero-desc">
-              Vasundhara Diagnostics &amp; Fetal Medicine Centre brings together dedicated fetal medicine specialists, high-resolution ultrasound imaging, and comprehensive physician diabetes management under one tranquil, patient-first facility.
+              Vasundhara Diagnostics &amp; Fetal Medicine Centre brings together dedicated fetal medicine specialists, high-resolution 3D/4D ultrasound imaging, and comprehensive physician diabetes management under one tranquil, patient-first facility in Sai Nagar, Anantapur.
             </p>
             <div className="about-hero-actions">
-              <Link to="/book-appointment" className="ref-btn-teal">
+              <Link to="/book-appointment" className="btn-primary-navy">
                 <Calendar size={16} />
                 <span>Book a Consultation</span>
                 <ArrowRight size={16} />
               </Link>
-              <Link to="/services" className="ref-btn-outline">
+              <Link to="/services" className="btn-secondary-outline">
                 <span>Explore All Services</span>
               </Link>
             </div>
@@ -63,7 +59,7 @@ export default function About() {
               <div className="about-img-badge">
                 <Building2 size={20} className="badge-icon" />
                 <div>
-                  <strong>Sai Nagar Clinic</strong>
+                  <strong>Sai Nagar Centre</strong>
                   <span>Spacious, tranquil &amp; step-free facility</span>
                 </div>
               </div>
@@ -78,7 +74,7 @@ export default function About() {
         <div className="container">
           <div className="vision-mission-grid">
             
-            <div className="vm-card">
+            <div className="vm-card global-card">
               <div className="vm-icon-box">
                 <Eye size={24} />
               </div>
@@ -88,7 +84,7 @@ export default function About() {
               </p>
             </div>
 
-            <div className="vm-card">
+            <div className="vm-card global-card">
               <div className="vm-icon-box gold-icon">
                 <ShieldCheck size={24} />
               </div>
@@ -105,53 +101,53 @@ export default function About() {
       {/* ── 3. THREE CLINICAL PILLARS (Listen, Evaluate, Explain) ── */}
       <section className="about-pillars-section">
         <div className="container">
-          <div className="ref-section-header text-center">
-            <span className="ref-section-tag">Patient First Approach</span>
-            <h2 className="ref-section-heading">Our Core Care Principles</h2>
-            <p className="ref-section-sub">A structured, empathetic patient journey from first question to clear clinical results.</p>
+          <div className="text-center">
+            <span className="section-eyebrow-pill">PATIENT FIRST APPROACH</span>
+            <h2 className="section-title-serif">Our Core Care Principles</h2>
+            <p className="section-subtitle-sans">A structured, empathetic patient journey from first question to clear clinical results.</p>
           </div>
 
           <div className="three-pillars-grid">
             
-            <div className="pillar-item">
+            <div className="pillar-item global-card">
               <div className="pillar-circle-icon">
                 <Ear size={26} />
               </div>
               <h4>01. Listen</h4>
-              <p>We listen closely to your history, concerns, and clinical questions with dedicated consultation time.</p>
+              <p>We listen closely to your medical history, symptoms, and concerns with dedicated consultation time.</p>
             </div>
 
-            <div className="pillar-item">
+            <div className="pillar-item global-card">
               <div className="pillar-circle-icon teal-pillar">
                 <Microscope size={26} />
               </div>
               <h4>02. Evaluate</h4>
-              <p>We perform scans and evaluations using advanced high-resolution diagnostic technology.</p>
+              <p>We perform scans and blood profiles using advanced high-resolution diagnostic technology.</p>
             </div>
 
-            <div className="pillar-item">
+            <div className="pillar-item global-card">
               <div className="pillar-circle-icon navy-pillar">
                 <Heart size={26} />
               </div>
               <h4>03. Explain</h4>
-              <p>We explain image findings and blood metrics in transparent terms so you and your doctor have total clarity.</p>
+              <p>We explain image findings and blood metrics in clear, reassuring terms so you and your doctor have total clarity.</p>
             </div>
 
           </div>
         </div>
       </section>
 
-      {/* ── 4. LEADERSHIP CARE TEAM (INSIGNIA EMBLEMS) ─────── */}
+      {/* ── 4. LEADERSHIP CARE TEAM ───────────────────────── */}
       <section className="about-team-section">
         <div className="container">
-          <div className="ref-section-header text-center">
-            <span className="ref-section-tag">Clinical Specialists</span>
-            <h2 className="ref-section-heading">Medical Leadership</h2>
-            <p className="ref-section-sub">Experienced clinicians providing personal, specialist-led consultations.</p>
+          <div className="text-center">
+            <span className="section-eyebrow-pill">CLINICAL SPECIALISTS</span>
+            <h2 className="section-title-serif">Medical Leadership</h2>
+            <p className="section-subtitle-sans">Experienced clinicians providing personal, specialist-led consultations.</p>
           </div>
 
           <div className="about-team-grid">
-            <div className="about-doctor-card">
+            <div className="about-doctor-card global-card">
               <div className="about-emblem-badge teal-emblem">
                 <Baby size={36} />
               </div>
@@ -166,7 +162,7 @@ export default function About() {
               </div>
             </div>
 
-            <div className="about-doctor-card">
+            <div className="about-doctor-card global-card">
               <div className="about-emblem-badge navy-emblem">
                 <Activity size={36} />
               </div>

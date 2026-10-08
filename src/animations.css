@@ -386,6 +386,162 @@
   opacity: 1;
 }
 
+/* ─── Advanced Motion System Keyframes ─── */
+
+@keyframes wordReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(18px);
+    filter: blur(4px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes softPulseDot {
+  0%, 100% {
+    opacity: 0.45;
+    transform: scale(0.94);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.06);
+  }
+}
+
+@keyframes eyebrowLineExpand {
+  from {
+    width: 0px;
+    opacity: 0;
+  }
+  to {
+    width: 45px;
+    opacity: 1;
+  }
+}
+
+@keyframes editorialClipReveal {
+  0% {
+    clip-path: inset(0 100% 0 0);
+    opacity: 0.2;
+  }
+  100% {
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+  }
+}
+
+@keyframes microScaleFloating {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.015);
+  }
+}
+
+@keyframes selectiveTextBlink {
+  0%, 100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Word-by-word reveal container */
+.word-reveal-wrap {
+  display: inline-block;
+  overflow: hidden;
+}
+
+.word-reveal-word {
+  display: inline-block;
+  white-space: pre;
+  opacity: 0;
+  animation: wordReveal 0.75s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Eyebrow Line Utility */
+.eyebrow-with-line {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.eyebrow-animated-line {
+  display: inline-block;
+  height: 2px;
+  background: linear-gradient(90deg, #0F766E, #06B6D4);
+  border-radius: 99px;
+  width: 0;
+  transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.eyebrow-animated-line.visible,
+.reveal.visible .eyebrow-animated-line {
+  width: 45px;
+}
+
+/* Pulse indicator dot */
+.pulse-indicator-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #2DD4BF;
+  box-shadow: 0 0 10px rgba(45, 212, 191, 0.6);
+  animation: softPulseDot 1.8s ease-in-out infinite;
+}
+
+/* Selective blinking micro-accent */
+.selective-blink-accent {
+  animation: selectiveTextBlink 2s ease-in-out infinite;
+}
+
+/* Image clip mask reveal */
+.editorial-clip-reveal {
+  opacity: 0;
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 0.95s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.95s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.editorial-clip-reveal.visible {
+  opacity: 1;
+  clip-path: inset(0 0 0 0);
+}
+
+/* Micro-motion scaling on revealed hero images */
+.micro-scale-active {
+  animation: microScaleFloating 8s ease-in-out infinite 1.2s;
+}
+
+/* Doctor card name underline hover */
+.hover-underline-target {
+  position: relative;
+  display: inline-block;
+}
+
+.hover-underline-target::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(90deg, #0F766E, #06B6D4);
+  transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+*:hover > .hover-underline-target::after,
+.hover-underline-target:hover::after {
+  width: 100%;
+}
+
 /* ─── Reduce Motion ─── */
 
 @media (prefers-reduced-motion: reduce) {
@@ -394,8 +550,15 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-  .reveal, .reveal-left, .reveal-right, .reveal-scale {
-    opacity: 1;
-    transform: none;
+  .reveal, .reveal-left, .reveal-right, .reveal-scale,
+  .editorial-clip-reveal, .word-reveal-word {
+    opacity: 1 !important;
+    transform: none !important;
+    clip-path: none !important;
+    filter: none !important;
+  }
+  .pulse-indicator-dot, .selective-blink-accent, .micro-scale-active {
+    animation: none !important;
   }
 }
+

@@ -70,8 +70,8 @@ export default function PatientGuide() {
       {/* ── HERO ────────────────────────────────────────── */}
       <section className="guide-hero-section text-center">
         <div className="container">
-          <div className="eyebrow hero-animate-sub">
-            <Sparkles size={14} /> PATIENT PREPARATION &amp; CARE
+          <div className="section-eyebrow-pill hero-animate-sub">
+            <Sparkles size={14} style={{ display: 'inline', marginRight: '5px', verticalAlign: '-1px' }} /> PATIENT PREPARATION &amp; CARE
           </div>
           <h1 className="guide-hero-title hero-animate-title">Your Visit, Made Simple</h1>
           <p className="guide-hero-subtitle mx-auto hero-animate-sub">
@@ -117,11 +117,11 @@ export default function PatientGuide() {
         <div className="container">
           <div className="amenities-card premium-card reveal-scale">
             <div className="amenities-header">
-              <div className="eyebrow">
-                <Car size={14} /> CLINIC AMENITIES
+              <div className="section-eyebrow-pill">
+                <Car size={14} style={{ display: 'inline', marginRight: '5px', verticalAlign: '-1px' }} /> CLINIC AMENITIES
               </div>
-              <h2 className="section-heading">Step-Free Accessibility in Sai Nagar</h2>
-              <p className="section-subheading">
+              <h2 className="section-title-serif" style={{ fontSize: '2.2rem' }}>Step-Free Accessibility in Sai Nagar</h2>
+              <p className="section-subtitle-sans" style={{ margin: '0' }}>
                 We have designed our facility to ensure utmost comfort for expectant mothers and senior citizens.
               </p>
             </div>
@@ -151,11 +151,11 @@ export default function PatientGuide() {
             Book an appointment online or call our Sai Nagar reception desk for assistance.
           </p>
           <div className="guide-cta-btn-group">
-            <Link to="/book-appointment" className="btn btn-teal btn-large hero-btn-pulse">
+            <Link to="/book-appointment" className="btn-primary-navy" style={{ backgroundColor: 'var(--color-clinical-teal)' }}>
               <Calendar size={18} />
               <span>Book Appointment</span>
             </Link>
-            <Link to="/contact" className="btn btn-outline-light btn-large link-arrow-anim">
+            <Link to="/contact" className="btn-secondary-outline" style={{ color: '#FFFFFF', borderColor: 'rgba(255, 255, 255, 0.4)' }}>
               <span>View Location &amp; Map</span>
               <ArrowRight size={17} />
             </Link>

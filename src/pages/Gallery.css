@@ -3,7 +3,7 @@
    ========================================== */
 
 .gallery-hero-section {
-  padding: 5rem 0 4rem;
+  padding: 6.5rem 0 4rem;
   background: linear-gradient(180deg, rgba(221, 243, 241, 0.45) 0%, rgba(250, 248, 244, 1) 100%);
   border-bottom: 1px solid var(--border-subtle);
 }

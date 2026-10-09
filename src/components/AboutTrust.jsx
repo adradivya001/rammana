@@ -31,8 +31,8 @@ export default function AboutTrust() {
           <div className="about-visual-column">
             <div className="about-visual-frame">
               <img 
-                src="/images/about_clinic_interior.jpg" 
-                alt="Vasundhara Diagnostics Clinical Interior" 
+                src="/images/vasundhara_building.jpg" 
+                alt="Vasundhara Diagnostics & Fetal Medicine Centre" 
                 className="about-editorial-img"
                 loading="lazy"
               />

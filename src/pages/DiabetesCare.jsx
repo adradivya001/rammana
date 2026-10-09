@@ -179,31 +179,42 @@ export default function DiabetesCare() {
       
       {/* 1. HERO SECTION */}
       <section className="diabetes-hero-section">
-        <div className="container text-center">
-          <div className="diabetes-hero-badge">
-            <Sparkles size={14} />
-            <span>SAI KIRAN DIABETIC CLINIC</span>
-          </div>
-          <h1 className="diabetes-hero-title">
-            Specialized Diabetes &amp; Gestational Care
-          </h1>
-          <p className="diabetes-hero-desc">
-            Led by Dr. V. Sai Kiran Reddy. Comprehensive glycemic profiling, HbA1c tracking, gestational diabetes management, and organ protection strategies in Sai Nagar, Anantapur.
-          </p>
+        <div className="container diabetes-hero-container">
+          <div className="diabetes-hero-text">
+            <div className="diabetes-hero-badge">
+              <Sparkles size={14} />
+              <span>SAI KIRAN DIABETIC CLINIC</span>
+            </div>
+            <h1 className="diabetes-hero-title">
+              Specialized Diabetes &amp; Gestational Care
+            </h1>
+            <p className="diabetes-hero-desc">
+              Led by Dr. V. Sai Kiran Reddy. Comprehensive glycemic profiling, HbA1c tracking, gestational diabetes management, and organ protection strategies in Sai Nagar, Anantapur.
+            </p>
 
-          <div className="diabetes-hero-actions">
-            <button 
-              onClick={() => handleStartBooking('Diabetes Consultation')}
-              className="btn-diabetes-primary"
-            >
-              <Calendar size={18} />
-              <span>Book Diabetes Consultation</span>
-              <ArrowRight size={18} />
-            </button>
-            <a href={`tel:${siteConfig.contact.phoneDeskRaw}`} className="btn-diabetes-outline">
-              <Phone size={16} />
-              <span>Call Helpline: {siteConfig.contact.phoneDesk}</span>
-            </a>
+            <div className="diabetes-hero-actions">
+              <button 
+                onClick={() => handleStartBooking('Diabetes Consultation')}
+                className="btn-diabetes-primary"
+              >
+                <Calendar size={18} />
+                <span>Book Diabetes Consultation</span>
+                <ArrowRight size={18} />
+              </button>
+              <a href={`tel:${siteConfig.contact.phoneDeskRaw}`} className="btn-diabetes-outline">
+                <Phone size={16} />
+                <span>Call Helpline: {siteConfig.contact.phoneDesk}</span>
+              </a>
+            </div>
+          </div>
+
+          <div className="diabetes-hero-visual-frame">
+            <img 
+              src="/images/diabetes_care_consultation.jpg" 
+              alt="Specialized Diabetes and Gestational Care Consultation" 
+              className="diabetes-hero-img"
+              loading="eager"
+            />
           </div>
         </div>
       </section>

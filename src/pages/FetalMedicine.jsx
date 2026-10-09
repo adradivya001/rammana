@@ -52,7 +52,7 @@ const FETAL_SERVICES_LIST = [
     id: "antenatal-sonography",
     title: "Antenatal Sonography",
     shortDescription: "Pregnancy imaging and monitoring.",
-    image: "/images/about_clinic_interior.jpg"
+    image: "/images/pregnancy_ultrasound_scan.jpg"
   }
 ];
 

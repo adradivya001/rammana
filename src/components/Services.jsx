@@ -41,7 +41,7 @@ const SERVICES_SHOWCASE_DATA = [
     title: "General Medicine",
     category: "PHYSICIAN CONSULTATION",
     desc: "Expert general medical care, acute illness evaluation, and primary healthcare consultation by Dr. V. Sai Kiran Reddy.",
-    image: "/images/about_clinic_interior.jpg",
+    image: "/images/diabetes_care_clinical.jpg",
     route: "/doctors"
   },
   {

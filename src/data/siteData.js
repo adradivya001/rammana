@@ -10,7 +10,7 @@ export const siteConfig = {
     buildingImage: "/images/vasundhara_building.jpg",
     fetalHeroImage: "/images/fetal_ultrasound_suite.jpg",
     diabetesHeroImage: "/images/diabetes_care_consultation.jpg",
-    interiorImage: "/images/about_clinic_interior.jpg",
+    interiorImage: "/images/vasundhara_building.jpg",
     fetalFeatureImage: "/images/fetal_feature_care.jpg",
   },
   contact: {
@@ -415,7 +415,7 @@ export const siteConfig = {
       id: 4,
       title: "Patient Waiting & Reception Lounge",
       category: "centre",
-      image: "/images/about_clinic_interior.jpg",
+      image: "/images/womens_imaging_suite.jpg",
       description: "Serene, air-conditioned patient lounge designed for maternal comfort and calm experience."
     },
     {

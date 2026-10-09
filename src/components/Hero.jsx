@@ -77,9 +77,7 @@ export default function Hero({ onOpenBooking, data }) {
         </div>
       </div>
 
-      </div>
-
-      {/* 3. OVERLAPPING HERO TRUST STRIP AT BOTTOM */}
+      {/* 3. HERO TRUST STRIP AT BOTTOM INSIDE CONTAINER */}
       <div className="hero-trust-strip-bar">
         <div className="trust-strip-container">
           {content.trustItems.map((item, idx) => (
@@ -92,6 +90,8 @@ export default function Hero({ onOpenBooking, data }) {
             </div>
           ))}
         </div>
+      </div>
+
       </div>
     </section>
   );

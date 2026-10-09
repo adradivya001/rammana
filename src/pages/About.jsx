@@ -14,7 +14,6 @@ import {
   Activity
 } from 'lucide-react';
 import { siteConfig } from '../data/siteData';
-import receptionImg from '../assets/clinic_reception_modern_1791288825992.jpg';
 import './About.css';
 
 export default function About() {
@@ -52,8 +51,8 @@ export default function About() {
           <div className="about-hero-image-wrap">
             <div className="about-hero-frame">
               <img 
-                src={receptionImg} 
-                alt="Vasundhara Diagnostics & Fetal Medicine Centre Reception" 
+                src="/images/vasundhara_building.jpg" 
+                alt="Vasundhara Diagnostics & Fetal Medicine Centre Building" 
                 className="about-hero-img"
               />
               <div className="about-img-badge">

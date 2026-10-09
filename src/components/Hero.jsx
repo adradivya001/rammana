@@ -22,16 +22,17 @@ export default function Hero({ onOpenBooking, data }) {
   };
 
   return (
-    <section id="hero" className="hero-cinematic-section">
-      {/* 1. CINEMATIC FULL-WIDTH BACKGROUND VISUAL LAYER */}
-      <div 
-        className="hero-background-visual"
-        style={{ backgroundImage: `url(${content.backgroundImage})` }}
-        aria-hidden="true"
-      ></div>
+    <section id="hero" className="hero-wrapper">
+      <div className="hero-container">
+        {/* 1. CINEMATIC BACKGROUND VISUAL LAYER */}
+        <div 
+          className="hero-background-visual"
+          style={{ backgroundImage: `url(${content.backgroundImage})` }}
+          aria-hidden="true"
+        ></div>
 
-      {/* 2. HTML CONTENT LAYER (Positioned directly in empty LEFT negative space) */}
-      <div className="hero-content-container">
+        {/* 2. HTML CONTENT LAYER */}
+        <div className="hero-content-container">
         <div className="hero-editorial-left">
           
           {/* Eyebrow Badge */}
@@ -74,6 +75,8 @@ export default function Hero({ onOpenBooking, data }) {
           </div>
 
         </div>
+      </div>
+
       </div>
 
       {/* 3. OVERLAPPING HERO TRUST STRIP AT BOTTOM */}

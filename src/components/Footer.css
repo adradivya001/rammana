@@ -6,7 +6,7 @@
 .master-global-footer {
   background-color: #071A2F;
   color: #94A3B8;
-  padding: 1.85rem 0 1.25rem;
+  padding: 1.25rem 0 0.75rem;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   position: relative;
   z-index: 10;
@@ -19,7 +19,7 @@
   justify-content: space-between;
   gap: 1.25rem;
   flex-wrap: wrap;
-  padding-bottom: 1.1rem;
+  padding-bottom: 0.75rem;
 }
 
 .footer-dual-brand {
@@ -54,12 +54,12 @@
   flex-direction: column;
 }
 
-.brand-name-vasundhara {
+.master-global-footer .brand-name-vasundhara {
   font-family: var(--font-sans, system-ui);
   font-size: 0.95rem;
   font-weight: 800;
   letter-spacing: 0.05em;
-  color: #FFFFFF;
+  color: #FFFFFF !important;
   line-height: 1.1;
 }
 
@@ -155,12 +155,12 @@
 }
 
 .footer-top-divider {
-  margin-bottom: 1.35rem;
+  margin-bottom: 1rem;
 }
 
 .footer-bottom-divider {
-  margin-top: 1.35rem;
-  margin-bottom: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 0.75rem;
 }
 
 /* 2. 4-COLUMN FOOTER CONTENT GRID */
@@ -208,7 +208,7 @@
   font-size: 0.925rem;
   font-weight: 700;
   color: #FFFFFF;
-  margin-bottom: 0.85rem;
+  margin-bottom: 0.5rem;
   display: flex;
   align-items: center;
   gap: 0.4rem;
@@ -229,7 +229,7 @@
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.45rem;
+  gap: 0.25rem;
 }
 
 .footer-links-list a {
@@ -250,7 +250,7 @@
 .footer-contact-details {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.5rem;
 }
 
 .contact-detail-item {

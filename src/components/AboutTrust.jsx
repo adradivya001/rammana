@@ -1,75 +1,74 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, MapPin } from 'lucide-react';
+import { ArrowRight, Stethoscope, Microscope, ScanLine, Heart } from 'lucide-react'; /* Placeholder icons for the 4 features */
 import './AboutTrust.css';
 
 export default function AboutTrust() {
   return (
     <section id="about" className="about-editorial-section">
-      <div className="container about-editorial-grid">
+      <div className="container">
         
-        {/* LEFT COLUMN: LARGE PREMIUM CLINIC IMAGE */}
-        <div className="about-visual-column">
-          <div className="about-visual-frame">
-            <img 
-              src="/images/about_clinic_interior.jpg" 
-              alt="Vasundhara Diagnostics Clinical Interior" 
-              className="about-editorial-img"
-              loading="lazy"
-            />
-            <div className="about-location-pill">
-              <MapPin size={15} />
-              <span>Sai Nagar, Anantapur</span>
+        <div className="about-editorial-grid">
+          {/* LEFT COLUMN: EDITORIAL CONTENT */}
+          <div className="about-text-column">
+            <h2 className="section-title-serif about-title">
+              Care That Begins With Understanding
+            </h2>
+
+            <p className="about-lead-desc">
+              Vasundhara Diagnostics &amp; Fetal Medicine Centre brings together specialized fetal medicine, diagnostic services and dedicated diabetes care through one connected healthcare experience.
+            </p>
+
+            <div className="about-cta-wrap">
+              <Link to="/about" className="btn-panel-explore">
+                <span>About the Centre</span>
+                <ArrowRight size={16} />
+              </Link>
+            </div>
+          </div>
+
+          {/* RIGHT COLUMN: LARGE PREMIUM CLINIC IMAGE */}
+          <div className="about-visual-column">
+            <div className="about-visual-frame">
+              <img 
+                src="/images/about_clinic_interior.jpg" 
+                alt="Vasundhara Diagnostics Clinical Interior" 
+                className="about-editorial-img"
+                loading="lazy"
+              />
             </div>
           </div>
         </div>
 
-        {/* RIGHT COLUMN: EDITORIAL CONTENT */}
-        <div className="about-text-column">
-          <span className="section-eyebrow-pill">ABOUT VASUNDHARA</span>
-
-          <h2 className="section-title-serif about-title">
-            Care Backed by Diagnostic Expertise.
-          </h2>
-
-          <p className="about-lead-desc">
-            Vasundhara Diagnostics &amp; Fetal Medicine Centre and Sai Kiran Diabetic Clinic bring specialised diagnostics, fetal medicine and diabetes care together under one trusted centre.
-          </p>
-
-          {/* 3 ELEGANT NUMBERED HIGHLIGHTS */}
-          <div className="about-highlights-list">
-            <div className="highlight-item">
-              <span className="highlight-num">01</span>
-              <div className="highlight-text">
-                <h3>Fetal Medicine</h3>
-                <p>Specialised maternal imaging &amp; prenatal risk evaluation.</p>
-              </div>
+        {/* BOTTOM ROW: 4 HIGHLIGHT FEATURES */}
+        <div className="about-features-row">
+          <div className="about-feature-box">
+            <div className="feature-icon-circle">
+              <Stethoscope size={22} />
             </div>
-
-            <div className="highlight-item">
-              <span className="highlight-num">02</span>
-              <span className="highlight-text">
-                <h3>Advanced Diagnostics</h3>
-                <p>High-resolution 3D/4D ultrasound &amp; structured reports.</p>
-              </span>
-            </div>
-
-            <div className="highlight-item">
-              <span className="highlight-num">03</span>
-              <div className="highlight-text">
-                <h3>Diabetes Care</h3>
-                <p>Personalised glycemic management led by Dr. Sai Kiran Reddy.</p>
-              </div>
-            </div>
+            <span className="feature-title">Fetal Medicine<br/>Expertise</span>
           </div>
 
-          <div className="about-cta-wrap">
-            <Link to="/about" className="btn-primary-navy">
-              <span>Discover Our Centre</span>
-              <ArrowRight size={16} />
-            </Link>
+          <div className="about-feature-box">
+            <div className="feature-icon-circle">
+              <Microscope size={22} />
+            </div>
+            <span className="feature-title">Diagnostic<br/>Support</span>
           </div>
 
+          <div className="about-feature-box">
+            <div className="feature-icon-circle">
+              <ScanLine size={22} />
+            </div>
+            <span className="feature-title">Modern<br/>Imaging</span>
+          </div>
+
+          <div className="about-feature-box">
+            <div className="feature-icon-circle">
+              <Heart size={22} />
+            </div>
+            <span className="feature-title">Compassionate<br/>Approach</span>
+          </div>
         </div>
 
       </div>

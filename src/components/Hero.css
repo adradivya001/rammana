@@ -3,21 +3,28 @@
    Full-Bleed Background Visual (herosection.png) + Left Text Layer
    ============================================================ */
 
-/* MASTER HERO SECTION CONTAINER - Starts at top:0 behind absolute navbar */
-.hero-cinematic-section {
-  position: relative;
+/* MASTER HERO SECTION WRAPPER */
+.hero-wrapper {
   width: 100%;
-  min-height: 720px;
-  height: min(780px, 90vh);
-  background-color: #FFFEFB; /* Exact left background color match */
+  padding-top: 85px; /* Clearance for fixed navbar */
+  padding-bottom: 2.5rem; /* Restored comfortable bottom gap */
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
-  padding-top: 85px; /* Comfortable clearance for single top main navbar */
-  padding-bottom: 2.5rem;
-  margin-top: 0;
+}
+
+/* HERO CONTAINER (Rounded, Contained) */
+.hero-container {
+  position: relative;
+  width: 98%; /* Increased width to reduce left/right gap */
+  max-width: 1600px; /* Increased max-width to better match navbar */
+  margin: 0 auto; /* Explicitly center */
+  min-height: 560px; /* Reduced height as requested */
+  background-color: #FFFEFB;
+  border-radius: 24px;
   overflow: hidden;
+  display: flex;
+  box-shadow: 0 12px 36px rgba(6, 21, 39, 0.04);
 }
 
 /* 1. CINEMATIC FULL-WIDTH BACKGROUND VISUAL LAYER */
@@ -29,38 +36,36 @@
   bottom: 0;
   width: 100%;
   height: 100%;
-  background-position: right -25px center; /* Shifted maternity visual slightly right */
+  background-position: right 5% center; /* Keep woman on right and fetus centered */
   background-repeat: no-repeat;
   background-size: cover;
   z-index: 1;
   pointer-events: none;
 }
 
-/* 2. HTML CONTENT CONTAINER (Positioned in Left Negative Space) */
+/* 2. HTML CONTENT CONTAINER */
 .hero-content-container {
   position: relative;
   z-index: 5;
   width: 100%;
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 0 2.5rem;
-  flex: 1 0 auto;
+  padding: 3rem 4rem 6rem 4rem; /* Added bottom padding so image shows below the overlapping strip */
   display: flex;
   align-items: center;
   justify-content: flex-start;
 }
 
-/* Editorial Left Text Area - Floats directly on natural negative space with clean breathing room */
+/* Editorial Left Text Area */
 .hero-editorial-left {
-  width: 47%;
-  max-width: 630px;
+  width: 44%;
+  max-width: 560px; /* Constrained text column width */
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: flex-start;
-  background: transparent !important; /* NO white card, NO glass box, NO background panel */
+  gap: 28px; /* Consistent vertical gaps */
+  background: transparent !important;
   box-shadow: none !important;
   border: none !important;
-  padding: 0.5rem 0;
 }
 
 /* Eyebrow Badge */
@@ -68,11 +73,11 @@
   display: inline-flex;
   align-items: center;
   gap: 0.55rem;
-  background-color: rgba(6, 21, 39, 0.05);
-  border: 1px solid rgba(6, 21, 39, 0.1);
-  padding: 0.4rem 1rem;
+  background-color: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(13, 148, 136, 0.15);
+  padding: 0.35rem 0.85rem;
   border-radius: 999px;
-  margin-bottom: 1.25rem;
+  /* Margin removed in favor of flex gap */
 }
 
 .eyebrow-pulse-dot {
@@ -94,12 +99,13 @@
 /* Editorial Serif Headline */
 .hero-headline-serif {
   font-family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
-  font-size: clamp(2.8rem, 4.4vw, 4.1rem);
+  font-size: clamp(2.5rem, 4vw, 3.8rem); /* Target approx 52-64px */
   font-weight: 700;
   color: #061527;
-  line-height: 1.05;
-  letter-spacing: -0.02em;
-  margin-bottom: 1.25rem;
+  line-height: 1.0;
+  letter-spacing: -0.01em;
+  max-width: 560px;
+  /* Margin removed in favor of flex gap */
 }
 
 .headline-accent-teal {
@@ -111,26 +117,27 @@
 /* Lead Paragraph */
 .hero-paragraph-lead {
   font-family: var(--font-sans);
-  font-size: 1.08rem;
-  color: #334155;
-  line-height: 1.65;
-  max-width: 550px;
-  margin-bottom: 2rem;
+  font-size: 1.15rem; /* ~18px desktop */
+  color: #1E293B; /* dark blue-gray */
+  line-height: 1.6;
+  max-width: 560px;
+  /* Margin removed in favor of flex gap */
 }
 
 /* Action Buttons Group */
 .hero-actions-group {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  margin-bottom: 2rem;
+  gap: 16px; /* Target gap 16px */
   flex-wrap: wrap;
+  /* Margin removed in favor of flex gap */
 }
 
 .btn-hero-primary-navy {
   background-color: #061527;
   color: #FFFFFF;
-  padding: 0.9rem 1.9rem;
+  padding: 0 1.8rem;
+  height: 56px; /* Target 54-60px */
   border-radius: 999px;
   font-size: 0.95rem;
   font-weight: 700;
@@ -138,8 +145,9 @@
   cursor: pointer;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.6rem;
-  box-shadow: 0 6px 20px rgba(6, 21, 39, 0.18);
+  box-shadow: 0 6px 16px rgba(6, 21, 39, 0.15);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   text-decoration: none;
 }
@@ -147,20 +155,22 @@
 .btn-hero-primary-navy:hover {
   background-color: #0D9488;
   transform: translateY(-2px);
-  box-shadow: 0 10px 28px rgba(13, 148, 136, 0.3);
+  box-shadow: 0 8px 24px rgba(13, 148, 136, 0.25);
 }
 
 .btn-hero-secondary-outline {
-  background-color: transparent;
+  background-color: rgba(255, 255, 255, 0.5);
   color: #061527;
-  padding: 0.85rem 1.6rem;
+  padding: 0 1.6rem;
+  height: 56px; /* Target 54-60px */
   border-radius: 999px;
   font-size: 0.95rem;
   font-weight: 600;
-  border: 1.5px solid rgba(6, 21, 39, 0.22);
+  border: 1px solid rgba(6, 21, 39, 0.15); /* Thin muted border */
   cursor: pointer;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
   text-decoration: none;
   transition: all 0.3s ease;
@@ -177,13 +187,13 @@
   display: inline-flex;
   align-items: center;
   gap: 0.55rem;
-  font-size: 0.825rem;
+  font-size: 0.8rem; /* Make it smaller */
   font-weight: 600;
-  color: #0F766E;
-  background-color: rgba(13, 148, 136, 0.07);
-  padding: 0.45rem 1rem;
+  color: #0D9488; /* Teal text */
+  background-color: rgba(255, 253, 248, 0.8); /* Light cream */
+  padding: 0.4rem 0.9rem;
   border-radius: 999px;
-  border: 1px solid rgba(13, 148, 136, 0.18);
+  border: 1px solid rgba(13, 148, 136, 0.25); /* Thin teal border */
 }
 
 .doctor-badge-icon {
@@ -194,29 +204,27 @@
 .hero-trust-strip-bar {
   position: relative;
   z-index: 10;
-  width: 100%;
-  max-width: 1280px;
-  margin: 1rem auto -3.5rem auto;
-  padding: 0 1.5rem;
+  width: 96%; /* Adjusted width for better alignment */
+  max-width: 1400px; /* Adjusted max width */
+  margin: -3.5rem auto 0 auto; /* Explicitly center and overlap with hero */
 }
 
 .trust-strip-container {
   background: #FFFFFF;
-  border-radius: 20px;
-  padding: 1.15rem 1.85rem;
-  display: flex;
+  border-radius: 18px; /* Rounded corners approximately 18px */
+  padding: 1.25rem 2rem;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 5 equal feature columns */
   align-items: center;
-  justify-content: space-between;
-  box-shadow: 0 12px 36px rgba(6, 21, 39, 0.06);
-  border: 1px solid rgba(6, 21, 39, 0.05);
-  flex-wrap: wrap;
-  gap: 1rem;
+  gap: 1.5rem;
+  box-shadow: 0 10px 30px rgba(6, 21, 39, 0.06); /* Subtle shadow */
+  border: 1px solid rgba(6, 21, 39, 0.04);
 }
 
 .trust-strip-item {
   display: flex;
-  align-items: center;
-  gap: 0.7rem;
+  align-items: center; /* Vertically center icon and text */
+  gap: 0.75rem;
 }
 
 .trust-item-bullet {
@@ -245,52 +253,77 @@
 }
 
 /* RESPONSIVE DESIGN BREAKPOINTS */
-@media (max-width: 1200px) {
+@media (max-width: 1280px) {
+  .trust-strip-container {
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .hero-container {
+    min-height: 500px;
+  }
   .hero-editorial-left {
     width: 50%;
   }
   .hero-headline-serif {
-    font-size: 2.7rem;
+    font-size: clamp(2.2rem, 3.5vw, 3rem);
+  }
+  .trust-strip-container {
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
   }
 }
 
-@media (max-width: 991px) {
-  .hero-cinematic-section {
-    min-height: 640px;
-    height: auto;
-    padding-top: 85px;
-    padding-bottom: 3.5rem;
+@media (max-width: 768px) {
+  .hero-wrapper {
+    padding-top: 75px;
+  }
+  .hero-container {
+    width: 92%;
+    min-height: auto;
   }
   .hero-background-visual {
-    background-position: center right 10%;
-    opacity: 0.9;
+    background-position: center right 20%;
+    opacity: 0.85;
+  }
+  .hero-content-container {
+    padding: 2.5rem 2rem;
   }
   .hero-editorial-left {
-    width: 65%;
+    width: 75%;
     max-width: 100%;
-    background: rgba(255, 254, 251, 0.88) !important;
+    background: rgba(255, 254, 251, 0.9) !important;
     backdrop-filter: blur(8px);
-    padding: 1.5rem;
-    border-radius: 16px;
+    padding: 2rem;
+    border-radius: 20px;
+  }
+  .trust-strip-container {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 640px) {
-  .hero-cinematic-section {
-    padding-top: 80px;
+  .hero-wrapper {
+    padding-top: 70px;
     padding-bottom: 3rem;
+  }
+  .hero-container {
+    width: 94%;
   }
   .hero-editorial-left {
     width: 100%;
     align-items: center;
     text-align: center;
     background: rgba(255, 254, 251, 0.93) !important;
+    gap: 20px;
   }
   .hero-headline-serif {
-    font-size: 2.1rem;
+    font-size: 2.2rem;
   }
   .hero-paragraph-lead {
-    font-size: 0.975rem;
+    font-size: 1rem;
   }
   .hero-actions-group {
     justify-content: center;
@@ -298,11 +331,14 @@
   .hero-doctor-badge {
     justify-content: center;
   }
+  .hero-trust-strip-bar {
+    width: 94%;
+    margin-top: -2rem;
+  }
   .trust-strip-container {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.85rem;
-    padding: 1.1rem;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 1.25rem;
   }
 }
 

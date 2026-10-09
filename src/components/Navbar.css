@@ -96,42 +96,44 @@
   flex-direction: column;
 }
 
-.brand-name-vasundhara {
+.ref-brand-group .brand-name-vasundhara {
   font-family: var(--font-sans);
-  font-size: 0.98rem;
-  font-weight: 800;
-  color: var(--color-primary-navy);
+  font-size: 0.95rem;
+  font-weight: 900;
+  color: #071A2F !important;
   letter-spacing: 0.06em;
   line-height: 1.1;
 }
 
-.brand-sub-vasundhara {
-  font-size: 0.66rem;
-  color: var(--color-text-muted);
-  font-weight: 600;
+.ref-brand-group .brand-sub-vasundhara {
+  font-size: 0.65rem;
+  color: #30445A !important;
+  font-weight: 700;
   letter-spacing: -0.01em;
 }
 
 .brand-divider-pipe {
-  width: 1px;
-  height: 28px;
-  background: rgba(10, 30, 54, 0.15);
+  display: block !important;
+  width: 2px !important;
+  height: 36px !important;
+  background-color: #94A3B8 !important; /* Solid visible slate color */
+  margin: 0 16px !important;
   flex-shrink: 0;
 }
 
 .brand-name-saikiran {
   font-family: var(--font-sans);
-  font-size: 0.82rem;
-  font-weight: 700;
-  color: var(--color-clinical-teal);
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: #079C94 !important;
   letter-spacing: 0.04em;
   line-height: 1.1;
 }
 
 .brand-sub-saikiran {
-  font-size: 0.65rem;
-  color: var(--color-text-muted);
-  font-weight: 500;
+  font-size: 0.7rem;
+  color: #30445A !important;
+  font-weight: 600;
 }
 
 /* Desktop Menu Links - Balanced Centered Distribution */
@@ -140,7 +142,7 @@
   align-items: center;
   justify-content: center;
   flex: 1 1 auto;
-  gap: 1.25rem;
+  gap: 0.65rem;
   flex-wrap: nowrap;
 }
 
@@ -148,11 +150,11 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.88rem;
+  font-size: 0.82rem;
   font-weight: 500;
   color: var(--color-text-secondary);
   text-decoration: none;
-  padding: 6px 10px;
+  padding: 4px 6px;
   white-space: nowrap;
   position: relative;
   transition: all var(--transition-fast);
@@ -315,9 +317,7 @@
 }
 
 @media (max-width: 640px) {
-  .brand-divider-pipe {
-    display: none;
-  }
+  /* brand-divider-pipe is always visible now */
   .brand-logo-right {
     display: none;
   }

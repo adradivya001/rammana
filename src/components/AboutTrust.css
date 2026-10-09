@@ -1,122 +1,103 @@
 /* ============================================================
-   SECTION 02: ABOUT TRUST (EDITORIAL MAGAZINE SPLIT LAYOUT)
+   SECTION 02: ABOUT TRUST (EDITORIAL SPLIT LAYOUT)
    ============================================================ */
 
 .about-editorial-section {
-  padding: 5.5rem 0;
-  background-color: #FFFFFF;
-  border-top: 1px solid rgba(7, 26, 47, 0.05);
-  border-bottom: 1px solid rgba(7, 26, 47, 0.05);
+  padding: 3rem 0;
+  background-color: var(--bg-page);
 }
 
 .about-editorial-grid {
   display: grid;
-  grid-template-columns: 1fr 1.15fr;
-  gap: 3.5rem;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 4rem;
   align-items: center;
+  margin-bottom: 3.5rem;
 }
 
-.about-visual-frame {
-  position: relative;
-  border-radius: var(--radius-image, 24px);
-  overflow: hidden;
-  box-shadow: 0 16px 40px rgba(7, 26, 47, 0.08);
-}
-
-.about-editorial-img {
-  width: 100%;
-  height: 480px;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.4s ease;
-}
-
-.about-visual-frame:hover .about-editorial-img {
-  transform: scale(1.03);
-}
-
-.about-location-pill {
-  position: absolute;
-  bottom: 1.25rem;
-  left: 1.25rem;
-  background: rgba(7, 26, 47, 0.85);
-  backdrop-filter: blur(10px);
-  color: #FFFFFF;
-  padding: 0.45rem 1rem;
-  border-radius: 999px;
-  font-size: 0.8rem;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  gap: 0.45rem;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
+/* Text Column */
 .about-text-column {
   display: flex;
   flex-direction: column;
 }
 
 .about-title {
-  margin-top: 0.5rem;
-  margin-bottom: 1rem;
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 3vw, 2.5rem);
+  font-weight: 700;
+  color: var(--color-primary-navy);
+  line-height: 1.15;
+  margin-bottom: 1.25rem;
 }
 
 .about-lead-desc {
   font-size: 1.05rem;
-  color: var(--color-secondary-navy, #30445A);
-  line-height: 1.65;
+  color: var(--color-secondary-navy);
+  line-height: 1.6;
   margin-bottom: 2rem;
-}
-
-/* 3 Numbered Highlights */
-.about-highlights-list {
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-  margin-bottom: 2.25rem;
-}
-
-.highlight-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 1.25rem;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid #F1F5F9;
-}
-
-.highlight-num {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--color-clinical-teal, #079C94);
-  line-height: 1;
-  background: var(--color-soft-teal, #DDF3EF);
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.highlight-text h3 {
-  font-size: 1.05rem;
-  font-weight: 700;
-  color: var(--color-primary-navy, #071A2F);
-  margin-bottom: 0.2rem;
-}
-
-.highlight-text p {
-  font-size: 0.875rem;
-  color: var(--color-secondary-navy, #30445A);
-  line-height: 1.5;
-  margin: 0;
 }
 
 .about-cta-wrap {
   margin-top: 0.5rem;
+}
+
+/* Image Frame */
+.about-visual-frame {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(7, 26, 47, 0.08);
+}
+
+.about-editorial-img {
+  width: 100%;
+  height: 440px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Bottom Features Row */
+.about-features-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.about-feature-box {
+  background: #FFFFFF;
+  border-radius: 20px;
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 6px 16px rgba(10, 30, 54, 0.03);
+  transition: transform 0.3s ease;
+  border: 1px solid rgba(7, 26, 47, 0.04);
+}
+
+.about-feature-box:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(10, 30, 54, 0.06);
+}
+
+.feature-icon-circle {
+  width: 56px;
+  height: 56px;
+  background-color: var(--bg-warm-peach);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary-navy);
+  margin-bottom: 1.25rem;
+}
+
+.feature-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-primary-navy);
+  line-height: 1.3;
 }
 
 @media (max-width: 991px) {
@@ -126,5 +107,17 @@
   }
   .about-editorial-img {
     height: 360px;
+  }
+  .about-features-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .about-features-row {
+    grid-template-columns: 1fr;
+  }
+  .about-title {
+    font-size: 1.75rem;
   }
 }

@@ -162,7 +162,7 @@ export default function Footer({ onOpenBooking }) {
 
           <div className="footer-bottom-legal-row">
             <div className="footer-copyright-text">
-              &copy; 2026 Vasundhara Diagnostics &amp; Fetal Medicine Centre &amp; Sai Kiran Diabetic Clinic. All rights reserved.
+              &copy; {new Date().getFullYear()} Vasundhara Diagnostics &amp; Sai Kiran Clinics. All rights reserved.
             </div>
 
             <div className="footer-legal-links">
